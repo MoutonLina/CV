@@ -1,6 +1,8 @@
 /* #*/ export const PERSON = `
+boubou: toto
+
 name:
-  first: JPM
+  first:   JPM
   middle:
   last: 
 about: Expert sur les sujets de transformation digitale des grandes organisations, JPM a occupé pendant de nombreuses années
@@ -56,6 +58,54 @@ skills:
 - name: Direction de projet
   level: 100
 knowledge: Bureautique, Cloud....
+
+# competences SLLs -  33 connaissances / 66 confirmé / 100 expert
+SLLs:
+- name: 1. systèmes d’exploitation (noyaux et leurs modules)
+  level: 80
+- name: 2. infrastructure
+  level: 80
+- name: 3. messagerie
+  level: 80
+- name: 4. serveurs de fichiers
+  level: 80
+- name: 5. serveurs d’applications
+  level: 80
+- name: 6. systèmes de gestion de bases de données
+  level: 80
+- name: 7. serveurs Web
+  level: 80
+- name: 8. outils de sécurité
+  level: 80
+- name: 9. outils réseaux
+  level: 80
+- name: 10. outils de supervision
+  level: 80
+- name: 11. outils d’administration
+  level: 80
+- name: 12. bureautique
+  level: 80
+- name: 13. outils d’exploitation
+  level: 80
+- name: 14. outils et langages de développement
+  level: 80
+- name: 15. « frameworks » de développement
+  level: 80
+- name: 16. outils de tests
+  level: 80
+- name: 17. systèmes d'information géographique
+  level: 80
+- name: 18. outils de travail collaboratif
+  level: 80
+- name: 19. outils de gestion de publication
+  level: 80
+- name: 20. outils de gestion de portails
+  level: 80
+- name: 21. décisionnel
+  level: 80
+- name: 22. progiciels métier
+  level: 80
+
 
 projects:
 - name: CONSEIL ET MANAGEMENT DE L'AVANT VENTE
