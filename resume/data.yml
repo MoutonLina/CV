@@ -1,69 +1,87 @@
 /* #*/ export const PERSON = `
 name:
-  first: John
+  first: Jean-Philippe
   middle:
-  last: Doe
-about: Hi, my name is John Doe. I"m just about the most boring type of person you could
-       possibly imagine. I like collecting leaves from the tree in my back yard and documenting
-       each time I eat a peanut that is non-uniform. I am not a robot. Please hire me.
-position: Software Developer
+  last: Mouton
+about: Expert sur les sujets de transformation digitale des grandes organisations, JPM a occupé pendant de nombreuses années
+        des fonctions de direction de projets pour la mise en place de dispositifs numériques majeurs.\n
+        Il est aujourd'hui en charge de porter l’ensemble des offres du groupe au sein du pôle avant vente de la société. Il participe aux phases de cadrage de projet, dimentionne les dispositifs et est un support pour la méthodologie appliquée par les équipes..
+position: Expert Digital
 
 birth:
-  year: 1990
-  location: New York
+  year: 1974
+  location: Paris
 
 experience:
-- company: Company A
-  position: Developer
-  timeperiod: since January 2016
-  description: Programming and watching cute cat videos.
-  website: https://example.com
+- company: DGFIP
+  position: Directeur de Projet Avant vente
+  timeperiod: 2014-2015
+  description: Projet pour la création du réseau social de la Direction des Finances Publiques
 
-- company: Company B
-  position: Frontend Developer
-  timeperiod: January 2015 - December 2015
-  description: Fulfillment of extremely important tasks.
+- company: France Media Monde
+  position: Directeur de Mission
+  timeperiod: 2017
+  description: Etude pour la mise en place d’une architecture Open Plateforme.
 
-- company: Company C
-  position: Trainee
-  timeperiod: March 2014 - December 2014
-  description: Making coffee and baking cookies.
+- company: Harmonie Mutuelle
+  position: Directeur de Mission
+  timeperiod: 2015-2016
+  description: Définition de la stratégie pour la mise en place d'une plateforme e-CRM.
+
+- company: LINAGORA - Grands marchés support logiciels libres
+  position: Manager Avant vente
+  timeperiod: Depuis 2016
+  description: Gains - DGFIP, CNAM, La Poste, ACIM, EDF.
 
 education:
-- degree: Master of Arts
-  timeperiod: March 2012 - December 2013
-  description: Major in Hacking and Computer Penetration, University A, New York, USA.
-  website: https://example.com
-
-- degree: Bachelor of Science
-  timeperiod: March 2009 - December 2011
-  description: Major in Engineering, University B, Los Angeles, USA.
+- degree: Ingénieur HEI
+  timeperiod: 1997
+  description: Ecole d'ingénieurs généraliste - Lille - France.
+  website: https://www.hei.fr/
 
 # skill level goes 0 to 100
 skills:
-- name: HTML5
-  level: 99
-- name: CSS3
-  level: 95
-- name: JavaScript
-  level: 97
-- name: Node.js
-  level: 93
-- name: Angular 2
-  level: 60
-- name: TypeScript
+- name: UX/UI, open innovation
   level: 80
-- name: ES.Next
+- name: Javascript - Nodejs, AngularJs
+  level: 40
+- name: CMS - Drupal 6, 7, 8 ; wordpress...
+  level: 80
+- name: Mobile - Flutter
   level: 70
-- name: Docker
-  level: 99
-knowledge: Also proficient in Adobe Photoshop and Illustrator, grew up bilingual
-  (English and Klingon).
+- name: Outils de tests - Selenium, Gatling,
+  level: 60
+- name: SCRUM, Agilité
+  level: 80
+- name: Direction de projet
+  level: 100
+knowledge: Bureautique, Cloud....
 
 projects:
-- name: best-resume-ever
-  platform: Vue
-  description: 👔 💼 Build fast 🚀 and easy multiple beautiful resumes and create your best CV ever! Made with Vue and LESS.
+- name: CONSEIL ET MANAGEMENT DE L'AVANT VENTE
+  platform: depuis 2012
+  description: Pilotage de l'avant vente et du cadrage sur des projets d'accompagnement à la transformation digitale des grandes organisations//
+              • Le Service d'information du Gouvernement dans le cadre des dispositifs numériques qui lui permettent d'assurer sa communication Digitale,//
+              • La Région Île de France, dans le cadre de l'élaboration de ses espaces numériques//
+              • Mc Donalds France, pour ses actions de communication évenementielles (McDO Monopoly)
+              • Nestlé, pour la création du dispositif numérique relationnel de ses marques (croquons la vie),
+              • La Gendarmerie Nationale, pour l'élaboration de son Réseau Social Professionnel
+              • Chaumet (Groupe LVMH), dans le cadre de la refonte de l'ensemble de son ecosystème digital (e-commerce, communication) 
+              • Icade, pour la transformation de son dispositif e-Commerce
+              • l'Agence Française du Développement pour la refonte de ses plateformes de travail et de communication
+              • La BNP pour la refonte de son portail collaboratif worldwide
+              • Gaindé 2000, pour la création d'un portail d'échanges (documents sécurisés) du gouvernement Sénégalais avec l'ensemble de ses citoyens
+              • La DINSIC, pour la création d'un logiciel d'archivage electronique (SAE), dans le cadre du programme VITAM (Valeurs immatérielles transmises aux archives pour mémoire) pour le compte du Ministère de la culture et de la communication, pour le Ministère de la Défense et pour le Ministère des affaires étrangères 
+              • …
+                Pilotage de l'avant vente et du cadrage sur les marchés de support et d’accompagnement à l’adoption de l’open source. Les grands marchés gagnés -  DGFIP, CNAM, La Poste, l’ACIM (marché interministeriel), EDF, la CNAV, le RSI…
+
+                Pilotage de l'avant vente et du cadrage sur les produits LINAGORA et en particulier sur OpenPaaS pour différents clients (ex  DGA)
+
+
+
+
+
+
   url: https://github.com/salomonelli/best-resume-ever
 
 hobbies:
