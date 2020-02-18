@@ -1,38 +1,14 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/salomonelli/best-resume-ever">
-  <img src="src/assets/logo.png" alt="Markdownify" width="200"></a>
+  best-resume-ever - TEST JPM
   <br>
-  best-resume-ever
-  <br>
+  => test avec contenu
+  => modification d'un template
+  => export en odt
+  => automatisation exports
 </h1>
 
-<div align="center">
 
-[![Travis badge](https://travis-ci.org/salomonelli/best-resume-ever.svg?branch=master)](https://travis-ci.org/salomonelli/best-resume-ever)
-
-</div>
-
-<h4 align="center">
-  :necktie: :briefcase: Build fast :rocket: and easy multiple beautiful resumes and create your best CV ever!
-  <br><br>
-  Made with Vue and LESS.
-</h4>
-
-<br>
-<br>
-
-<p align="left">
-<img src="src/assets/preview/resume-creative.png" width="150" style="margin-right:5px; border: 1px solid #ccc;" />
-<img src="src/assets/preview/resume-purple.png" width="150" style="margin-right:5px; border: 1px solid #ccc;" />
-<img src="src/assets/preview/resume-side-bar-rtl.png" width="150" style="margin-right:5px; border: 1px solid #ccc;" />
-<img src="src/assets/preview/resume-left-right-rtl.png" width="150" style="margin-right:5px; border: 1px solid #ccc;" />
-<img src="src/assets/preview/resume-material-dark.png" width="150" style="margin-right:5px; border: 1px solid #ccc;" />
-<img src="src/assets/preview/resume-left-right.png" width="150" style="margin-right:5px; border: 1px solid #ccc;" />
-<img src="src/assets/preview/resume-side-bar.png" width="150" style="margin-right:5px; border: 1px solid #ccc;" />
-<img src="src/assets/preview/resume-oblique.png" width="150" style="margin-right:5px; border: 1px solid #ccc;" />
-<img src="src/assets/preview/resume-cool.png" width="150" style="margin-right:5px; border: 1px solid #ccc;" />
-</p>
 
 <br>
 <br>
