@@ -3,7 +3,7 @@
     <div class="left-column">
       <div>
         <div class="headline">
-          <span> {{ person.name.first }} {{ person.name.middle }} </span>
+          <span> {{ person.name.first }} {{ person.name.middle }}</span>
           <span class="uppercase"> {{ person.name.last }} </span>
         </div>
 
@@ -171,6 +171,20 @@
             <span v-else class="squarred-grid-item"> {{ skill.name }} </span>
           </a>
         </div>
+        <div class="section-content-grid">
+          <a v-for="(sll, index) in person.slls" :key="index"
+            class="grid-item"
+            :href="sll.url">
+
+            <i v-if="skill.iconClass" :class="'lang-icon ' + skill.iconClass"></i>
+
+            <span v-else class="squarred-grid-item"> {{ sll.name }} </span>
+          </a>
+        </div>
+
+
+
+
       </div>
 
       <div v-if="person.contributions"
