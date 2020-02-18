@@ -2,11 +2,14 @@
   <br>
   best-resume-ever - TEST JPM
   <br>
-  => test avec contenu
-  => modification d'un template
-  => export en odt
-  => automatisation exports
 </h1>
+  => test avec contenu
+<br>
+  => modification d'un template
+<br>
+  => export en odt
+<br>
+  => automatisation exports
 
 
 
