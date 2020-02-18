@@ -1,8 +1,8 @@
 /* #*/ export const PERSON = `
 name:
-  first: Jean-Philippe
+  first: JPM
   middle:
-  last: Mouton
+  last: 
 about: Expert sur les sujets de transformation digitale des grandes organisations, JPM a occupé pendant de nombreuses années
         des fonctions de direction de projets pour la mise en place de dispositifs numériques majeurs.\n
         Il est aujourd'hui en charge de porter l’ensemble des offres du groupe au sein du pôle avant vente de la société. Il participe aux phases de cadrage de projet, dimentionne les dispositifs et est un support pour la méthodologie appliquée par les équipes..
