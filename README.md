@@ -3,13 +3,15 @@
   best-resume-ever - TEST JPM
   <br>
 </h1>
-  => test avec contenu
+  => test avec contenu => OK
 <br>
-  => modification d'un template
+  => modification d'un template  => OK
 <br>
-  => export en odt
+  => export en odt  => Pas de solution pour le moment
 <br>
-  => automatisation exports
+  => automatisation exports => mettre en place une variabilisation de data.yml et faire du traitement en boucle
+<br>
+  => génération des yml depuis les fichiers excel (formulaires) => à étudier / à faire..
 
 
 
