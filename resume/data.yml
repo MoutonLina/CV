@@ -2,23 +2,26 @@
 boubou: toto
 
 name:
-  first:   JPM
-  middle:
-  last: 
-about: Expert sur les sujets de transformation digitale des grandes organisations, JPM a occupé pendant de nombreuses années
-        des fonctions de direction de projets pour la mise en place de dispositifs numériques majeurs.\n
-        Il est aujourd'hui en charge de porter l’ensemble des offres du groupe au sein du pôle avant vente de la société. Il participe aux phases de cadrage de projet, dimentionne les dispositifs et est un support pour la méthodologie appliquée par les équipes..
+  first:   Jean-Philippe
+  trigramme: JPM
+  last: Mouton
+anexp : 23 ans d'expérience
+about: |
+        Expert sur les sujets de transformation digitale des grandes organisations, JPM a occupé pendant de nombreuses années des fonctions de direction de projets pour la mise en place de dispositifs numériques majeurs.
+        Il est aujourd'hui en charge de porter l’ensemble des offres du groupe au sein du pôle avant vente de la société. Il participe aux phases de cadrage de projet, dimentionne les dispositifs et est un support pour la méthodologie appliquée par les équipes.
 position: Expert Digital
 
-birth:
-  year: 1974
-  location: Paris
+exellence:
+- content: Cibler les besoins de l'entreprise, son positionnement et son objectif, tout en prenant en compte les contraintes
+- content: Répondre à des appels d’offres et cahiers des charges
+- content: Concevoir un cahier des charges. Rédiger une expression de besoins. Mener des entretiens d’utilisateurs clés
+
 
 experience:
-- company: DGFIP
-  position: Directeur de Projet Avant vente
-  timeperiod: 2014-2015
-  description: Projet pour la création du réseau social de la Direction des Finances Publiques
+- company: LINAGORA - Grands marchés support logiciels libres
+  position: Manager Avant vente
+  timeperiod: Depuis 2012
+  description: Gains - DGFIP, CNAM, La Poste, ACIM, EDF.
 
 - company: France Media Monde
   position: Directeur de Mission
@@ -30,16 +33,12 @@ experience:
   timeperiod: 2015-2016
   description: Définition de la stratégie pour la mise en place d'une plateforme e-CRM.
 
-- company: LINAGORA - Grands marchés support logiciels libres
-  position: Manager Avant vente
-  timeperiod: Depuis 2016
-  description: Gains - DGFIP, CNAM, La Poste, ACIM, EDF.
+
 
 education:
 - degree: Ingénieur HEI
   timeperiod: 1997
   description: Ecole d'ingénieurs généraliste - Lille - France.
-  website: https://www.hei.fr/
 
 # skill level goes 0 to 100
 skills:
@@ -57,61 +56,120 @@ skills:
   level: 80
 - name: Direction de projet
   level: 100
-knowledge: Bureautique, Cloud....
+
+caracteristics:
+- name: Architecture
+  level: 0
+- name: Développement
+  level: 0
+- name: DevOps
+  level: 0
+- name: Expertise
+  level: 0
+- name: Pilotage
+  level: 100
+- name: UX / UI
+  level: 100
+- name: Consulting
+  level: 100
+- name: Innovation
+  level: 100
 
 # competences SLLs -  33 connaissances / 66 confirmé / 100 expert
-SLLs:
-- name: 1. systèmes d’exploitation (noyaux et leurs modules)
-  level: 80
+slls:
+- name: 1. systèmes d’exploitation
+  level: 33
 - name: 2. infrastructure
-  level: 80
+  level: 33
 - name: 3. messagerie
-  level: 80
+  level: 33
 - name: 4. serveurs de fichiers
-  level: 80
+  level: 33
 - name: 5. serveurs d’applications
-  level: 80
-- name: 6. systèmes de gestion de bases de données
-  level: 80
+  level: 66
+- name: 6. systèmes de bases de données
+  level: 66
 - name: 7. serveurs Web
-  level: 80
+  level: 66
 - name: 8. outils de sécurité
-  level: 80
+  level: 33
 - name: 9. outils réseaux
-  level: 80
+  level: 33
 - name: 10. outils de supervision
-  level: 80
+  level: 33
 - name: 11. outils d’administration
-  level: 80
+  level: 33
 - name: 12. bureautique
-  level: 80
+  level: 100
 - name: 13. outils d’exploitation
-  level: 80
-- name: 14. outils et langages de développement
-  level: 80
+  level: 33
+- name: 14. langages de développement
+  level: 66
 - name: 15. « frameworks » de développement
-  level: 80
+  level: 66
 - name: 16. outils de tests
-  level: 80
-- name: 17. systèmes d'information géographique
-  level: 80
+  level: 66
+- name: 17. SIG (info géographique)
+  level: 0
 - name: 18. outils de travail collaboratif
-  level: 80
+  level: 100
 - name: 19. outils de gestion de publication
-  level: 80
+  level: 66
 - name: 20. outils de gestion de portails
-  level: 80
+  level: 100
 - name: 21. décisionnel
-  level: 80
+  level: 33
 - name: 22. progiciels métier
-  level: 80
+  level: 66
 
+
+# competences SLLs -  33 connaissances / 66 confirmé / 100 expert
+sllsbis:
+- name: OS / Virtualisation
+  level: 33
+- name: Réseaux
+  level: 33
+- name: Sécurité / PKI / Crypto
+  level: 33
+- name: Infrastructure / Cloud / IaaS
+  level: 33
+- name: Exploit. / Sup. / DevOps
+  level: 33
+- name: IAM / Fédération d\’identités
+  level: 33
+- name: Serveurs d\’applications
+  level: 66
+- name: SGBD / NoSQL
+  level: 66
+- name: ESB / SOA / WOA / MOM
+  level: 33
+- name: Outils de modélisation
+  level: 33
+- name: Frameworks dév.
+  level: 66
+- name: Ingénierie / Forge / PIC
+  level: 33
+- name: Outils tests / Qualité
+  level: 33
+- name: CMS / Portails / Search
+  level: 100
+- name: Gestion doc. / Workflow
+  level: 33
+- name: Messagerie / Collaboratif
+  level: 100
+- name: BI / Big Data / Prédictif
+  level: 33
+- name: Bureautique / Productivité
+  level: 100
+- name: SIG / Progiciels métier
+  level: 0
 
 projects:
-- name: CONSEIL ET MANAGEMENT DE L'AVANT VENTE
-  platform: depuis 2012
-  description: Pilotage de l'avant vente et du cadrage sur des projets d'accompagnement à la transformation digitale des grandes organisations//
-              • Le Service d'information du Gouvernement dans le cadre des dispositifs numériques qui lui permettent d'assurer sa communication Digitale,//
+- enterprise: LINAGORA - CONSEIL ET MANAGEMENT DE L'AVANT VENTE
+  period: depuis 2012
+  project: | 
+              Pilotage de l'avant vente et du cadrage sur des projets d'accompagnement à la transformation digitale des grandes organisations \:
+              • Le Service d'information du Gouvernement dans le cadre des dispositifs numériques qui lui permettent d'assurer sa communication Digitale,
               • La Région Île de France, dans le cadre de l'élaboration de ses espaces numériques//
               • Mc Donalds France, pour ses actions de communication évenementielles (McDO Monopoly)
               • Nestlé, pour la création du dispositif numérique relationnel de ses marques (croquons la vie),
@@ -123,38 +181,85 @@ projects:
               • Gaindé 2000, pour la création d'un portail d'échanges (documents sécurisés) du gouvernement Sénégalais avec l'ensemble de ses citoyens
               • La DINSIC, pour la création d'un logiciel d'archivage electronique (SAE), dans le cadre du programme VITAM (Valeurs immatérielles transmises aux archives pour mémoire) pour le compte du Ministère de la culture et de la communication, pour le Ministère de la Défense et pour le Ministère des affaires étrangères 
               • …
-                Pilotage de l'avant vente et du cadrage sur les marchés de support et d’accompagnement à l’adoption de l’open source. Les grands marchés gagnés -  DGFIP, CNAM, La Poste, l’ACIM (marché interministeriel), EDF, la CNAV, le RSI…
 
-                Pilotage de l'avant vente et du cadrage sur les produits LINAGORA et en particulier sur OpenPaaS pour différents clients (ex  DGA)
+              Pilotage de l'avant vente et du cadrage sur les marchés de support et d’accompagnement à l’adoption de l’open source. Les grands marchés gagnés -  DGFIP, CNAM, La Poste, l’ACIM (marché interministeriel), EDF, la CNAV, le RSI…
+
+              Pilotage de l'avant vente et du cadrage sur les produits LINAGORA et en particulier sur OpenPaaS pour différents clients (ex  DGA)
+  function: Manager Conseil et Avant vente de la cellule « services numériques » du Groupe
+  missions: |
+              Pilotage des Réponses aux consultations (stratégie digitale, technique, organisationnelle et financière)
+              • Elaboration des offres stratégiques, techniques et financières en réponse aux consultation
+              • Réalisation de proof of concept, Ateliers de présentation des offres
+              • Participation à des conférences, création de livres blancs.....
+  technos: |
+              OpenPaaS, LinShare, LinID…
+              Catalogue logiciel 0SSA (400 logiciels)
+              Plateformes web
+
+- enterprise: CLIENT - GROUPE HARMONIE MUTUELLE
+  period: 11/2015 – 02/2016
+  project: | 
+              Conseil et accompagnement dans la définition d'une nouvelle stack de développement Harmonie Mutuelle est le fruit du rapprochement de 5 mutuelles et protège aujourd'hui plus de 4,5 millions de personnes.
+              Le système d'information du groupe a subi de nombreuses transformations pour permettre la réalisation effective de ces fusions. Les équipes « Etudes » de la DSI ont du mettre en place des plateformes web il y a plusieurs années pour répondre à différentes problématiques \: Portails client, sites Internet, Intranet métier, Applications mobiles....Les choix technologiques pour réaliser ces travaux ont été effectués de façon disparates, sans gouvernance technologique unifiée (du fait que ces applications sont issues de la fusion des mutuelles).
+              La volonté des équipes « Etudes et projets » du groupe a été de travailler à la définition d'une « stack de développement web » permettant d'adresser les différents sujets soumis par les équipes métiers.
+              LINAGORA a accompagné les équipes SIHM dans la définition du nouvel environnement technologique destiné à être utilisé de façon « unifiée » pour les projets numériques de la Mutuelle.
+  function: Consultant digital et Directeur de projet
+  missions: |
+              LINAGORA a organisé des cycles d'ateliers de travail pour identifier les besoins numériques auxquels la DSI devra répondre dans les prochaines années, pour présenter des benchmarks, proof of concept, technologies susceptibles de répondre aux exigences. 
+              L'aboutissement de cette mission a donné lieu à la fourniture d'un rapport définissant l'architecture et les technologies à adopter sur les projets numériques futurs. JPM a été le directeur de projet qui a pris en charge le suivi de la prestation, l'animation des ateliers - auxquels ont participé 3 Architectes techniques de LINAGORA - et la rédaction du rapport de la mission.
+  technos: |
+              Nodejs, Express, Mongodb, OpenPaas, Angularjs, Angular Material, Reactjs, Backbone…
+              Cordova, Ionic, Android, Swift…
+              Drupal 7, Drupal 8, SF2, ZF2…
+
+
+
+- enterprise: CLIENT - GROUPE HARMONIE MUTUELLE
+  period: 01/2015 – 06/2015
+  project: | 
+              Définition de la roadmap digitale et technique pour la création d'un dispositif numérique e-CRM transverse Harmonie Mutuelle est le fruit du rapprochement de 5 mutuelles et protège aujourd'hui plus de 4,5 millions de personnes. Les missions assurées aujourd'hui par le groupe relèvent du Livre 2 (activités d'assurance) et du Livre 3 (activités à caractère sanitaire et social). Les entités en charge de ces missions sont indépendantes et disposent de leurs propres organisations au sein du Groupe (informatique, communication, métier.....). Un premier projet commun aux deux Livres est né d'une volonté de faire bénéficier aux adhérents d'offres et de services centralisés en vue de leurs faciliter les échanges avec la Mutuelle. Dans ce contexte, les équipes de LINAGORA ont accompagné Harmonie Mutuelles dans la définition de la roadmap digitale et technique pour la création de ce nouveau dispositif numérique transverse .
+  function: Consultant digital et Directeur de projet
+  missions: |
+               LINAGORA a réalisé une mission d'étude et de cadrage pour la mise en place d'un « Club adhérent » pour le Groupe et pour ses partenaires \: Accompagnement à la définition de la roadmap fonctionnelle de la plateforme, élaboration de la stratégie technique, définition d'une architecture orientée services. JPM a été le directeur de projet qui a pris en charge le suivi de la prestation, la participation et l'animation d'ateliers (auxquels ont participé 2 Architectes – fonctionnel et technique), l'élaboration de la stratégie technologique et de l'architecture de la plateforme cible.
+  technos: |
+              Stack Mean (Mongodb, express, angularjs, nodejs),
+              Cordova, Ionic,
+              Drupal 7, Drupal 8
+
+- enterprise: CLIENT - DGFIP
+  period: 12/2013 – 10/2014
+  project: | 
+            Mise en place du Réseau social professionnel de la DGFIP
+            La Direction générale des Finances publiques (DGFiP) est une administration publique française qui dépend du ministère de l'Économie et des Finances. Elle s’occupe de la gestion des finances publiques en France, tant en matière de dépenses que de recettes. Elle compte près de 130 000 agents.
+            Ceux-ci ne disposaient pas d'outil de travail collaboratif et contournaient ce manque par l'utilisation massive de mails, d'outils de type « wiki » disparates, de solutions de messagerie instantanées isolées....
+            La direction de l'Institution a initié un projet de mise en place d'un Réseau Social Professionnel (groupes de travail, salons de discussion, annuaire et mise en contacts, outils de travail collaboratif, événements, chat...) en 2013 et a confié à LINAGORA la mission \:
+            • de définition du socle technologique,
+            • d'élaboration de l'architecture technique de la plateforme,
+            • de réalisation de « proof of concept » permettant de valider le fonctionnement de la solution dans des conditions d'utilisation (charge induite par le combre d’utilisateurs simultanés) réelles,
+            • et enfin de création effective du Réseau Social d'Entreprise (RSE/RSP)..
+  function: Directeur de projet, Consultant digital
+  missions: |
+               JPM a pris en charge le pilotage sur l'intégralité de ce projet - sur une période d'une année environ (gestion des ressources et du planning, comités de suivi de projet, organisation de formations....). Il a également été en charge des opérations de cadrage du projet \: Sélection du socle, réalisation du dossier d'architecture technique, validation des hypothèses d'architecture au travers un POC.
+  technos: |
+            Scrum
+            Drupal 7, Distribution Drupal Commons, LemonLDAP, Gatling
+            PgSQL, Node.js, Varnish, Mongodb, Redis
 
 
 
 
 
 
-  url: https://github.com/salomonelli/best-resume-ever
 
-hobbies:
-- name: Video Games
-  iconClass: fa fa-gamepad
-  url: https://example.com
 
-- name: Drawing
-  iconClass: fa fa-pencil
-  url: https://example.com
+contributions: | 
+      Drupagora (2012) – Conférence Drupal Commerce
+      
+      Matinées pour comprendre LINAGORA (2014, 2015) - « Les réseaux sociaux d'entreprise open source », « Motoriser sa plateforme média avec Drupal »
+      
+      Participation à la rédaction de différents livres blancs
 
-contributions:
-- name: best-resume-ever
-  description: 👔 💼 Build fast 🚀 and easy multiple beautiful resumes.
-  url: https://github.com/salomonelli/best-resume-ever
 
-contact:
-  email: john.doe@email.com
-  phone: 0123 456789
-  street: 1234 Broadway
-  city: New York
-  website: johndoe.com
-  github: johnyD
 # en, de, fr, pt, ca, cn, it, es, th, pt-br, ru, sv, id, hu, pl, ja, ka, nl, he, zh-tw, lt, ko, el, nb-no
-lang: en
+lang: fr
 `
