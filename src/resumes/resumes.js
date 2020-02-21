@@ -1,5 +1,6 @@
 // If you create a new resume, import it here:
 import './creativeLina.vue';
+import './creativeLinaTest.vue';
 import './material-dark.vue';
 import './left-right.vue';
 import './oblique.vue';

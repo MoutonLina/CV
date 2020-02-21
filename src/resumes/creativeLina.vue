@@ -48,7 +48,7 @@
         <div class="hobbies-content">
           <div v-for="(education, index) in person.education" :key="index"
             class="section-content__item">
-            <span class="section-content__text"> {{ education.content }} </span>
+            <span class="section-content__text"> {{ education.contenu }} </span>
           </div>
         </div>
       </div>
