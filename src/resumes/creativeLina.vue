@@ -99,7 +99,7 @@
             class="section-content__item"
             >
 
-            <span class="section-content__subheader"> {{ experience.position }} - {{ experience.company }} ({{ experience.timeperiod }})</span>
+            <span class="section-content__subheader"> {{ experience.company }} ({{ experience.timeperiod }})</span>
             <span class="section-content__text--light"> {{ experience.description }}</span>
           </div>
         </div>
@@ -167,6 +167,7 @@
           <div v-for="(project, index) in person.projects" :key="index"
             class="section-content__text">
            <hr>
+      <div v-if="project.enterprise > ''">
             <span class="section-content__header"> {{ project.enterprise }} ({{ project.period }}) </span>
             <span class="section-content__subheader">{{ lang.project }}</span>
             <span class="section-content__text"> {{ project.project }} </span>
@@ -179,6 +180,7 @@
             <br>
             <span class="section-content__subheader">{{ lang.technos }}</span>
              <span class="section-content__text"> {{ project.technos }} </span>
+          </div>
           </div>
         </div>
       </div>
