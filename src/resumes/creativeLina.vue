@@ -4,7 +4,7 @@
       <div>
         <div><img src="../../resume/Linagora-RedOutline-RVB.png"></div>
         <div class="headline">
-          <span class="uppercase"> {{ person.name.trigramme }} yyy</span>
+          <span class="uppercase"> {{ person.name.trigramme }} </span>
         </div>
           <span class="txt-full-white"> {{ person.position }} </span>
           <br/>
@@ -143,7 +143,7 @@
             <span class="section-content__text"> {{ person.contributions }} </span>
   </div>
 </div>
-s
+
 
   </div>
 
