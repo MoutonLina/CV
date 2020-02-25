@@ -27,8 +27,15 @@ for f in odsfiles:
         sllsbischain += "{name: "+ unidecode(unicode(sheet['C'+ str(isllsbis)].value)) +" , level: " + unidecode(unicode(sheet['G' + str(isllsbis)].value))+ "},"
         isllsbis += 1
 
-    #iproject=734
-    iproject=286
+
+    try:
+        godata=sheet['E734'].value
+    except IndexError:
+        iproject=286
+    else:
+        iproject=734
+    #print iproject
+    #iproject=286
     projectchain=''
     while iproject > 83 : 
         projectchain += "{enterprise: "+ unidecode(unicode(sheet['E'+ str(iproject + 1)].value)).replace(":"," ") +" , period: " + unidecode(unicode(sheet['E' + str(iproject)].value)).replace(":"," ").replace("["," ").replace("]"," ")+ ", project: '|" + unidecode(unicode(sheet['G' + str(iproject + 2)].value)).replace(":"," ")+ "', function: " + unidecode(unicode(sheet['E' + str(iproject + 3)].value)).replace(":"," ")+ ", missions: '|" + unidecode(unicode(sheet['E' + str(iproject + 4)].value)).replace(":"," ")+ "', technos: '|" + unidecode(unicode(sheet['E' + str(iproject + 5)].value)).replace(":"," ")+ "'},"
