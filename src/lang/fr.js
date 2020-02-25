@@ -15,6 +15,12 @@ const lang = {
     project: 'Projet',
     function: 'Fonction',
     missions: 'Missions',
-    technos: 'Technologies'
+    technos: 'Technologies',
+    anexp: 'années d\'expérience',
+    other: 'Autres informations',
+    conferences: 'Conférences',
+    loisirs: 'Loisirs',
+    Langues: 'Langues',
+    fierte: 'Fiertés'
 };
 export default lang;
