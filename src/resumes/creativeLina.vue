@@ -32,10 +32,10 @@
         <span class="sll">{{sllbis.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
         <span v-if="(sllbis.level=='Connaissances') || (sllbis.level=='Confirme') || (sllbis.level=='Expert')" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
-      
+
         <span v-if="sllbis.level=='Confirme' || sllbis.level=='Expert'" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
-      
+
         <span v-if="sllbis.level=='Expert'" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
         </span>
@@ -53,12 +53,12 @@
         </div>
       </div>
 
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
     </div>
 
     <div class="left-column-bg">
@@ -66,7 +66,7 @@
     </div>
 
     <div class="right-column">
-      
+
       <div class="section-content__text">
         {{ person.about }}
       </div>
@@ -85,8 +85,8 @@
           </p>
         </div>
       </div>
-      
-      
+
+
       <div class="experience-section section">
         <div class="icon">
           <i class="material-icons small-icon">work</i>
@@ -118,13 +118,13 @@
     <div class="skills">
       <div class="skill-block" v-for="skill in person.skills" :key="skill.name" v-if="skill.name!=='None'">
         <span class="skill">{{skill.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
-        
+
         <span v-if="skill.level=='Connaissances' || skill.level=='Confirme' || skill.level=='Expert'" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
-      
+
         <span v-if="skill.level=='Confirme' || skill.level=='Expert'" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
-      
+
         <span v-if="skill.level=='Expert'" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
         </span>
@@ -180,29 +180,29 @@
 
       <div  class="projects-section section">
         <div class="section-content">
-          
+
 
            <div class="icon">
           <i class="material-icons small-icon">face</i>
           <span class="section-headline">{{ lang.other }}</span>
         </div>
                 <div class="section-content__text">  <div>
-            
+
           <span class="section-content__header" v-if="person.conferences!=='None'"> {{ lang.conferences }}</span>
             <span class="section-content__text" v-if="person.conferences!=='None'"> {{ person.conferences }} </span>
             <br>
-          
+
             <span class="section-content__header"> {{ lang.Langues }}</span>
             <div v-for="(lg, index) in person.languages" :key="index" >
             <span class="section-content__text" v-if="lg.level!=='Selectionner'"> {{ lg.name }} - {{ lg.level }}</span>
             </div>
- 
+
             <br>
             <span class="section-content__header" v-if="person.loisirs!=='None'"> {{ lang.loisirs }}</span>
             <span class="section-content__text" v-if="person.loisirs!=='None'"> {{ person.loisirs }} </span>
             <br>
 
- 
+
             <br>
             <span class="section-content__header" v-if="person.fierte!=='None'"> {{ lang.fierte }}</span>
             <span class="section-content__text" v-if="person.fierte!=='None'"> {{ person.fierte }} </span>
@@ -587,7 +587,7 @@ a {
         }
       }
     }
-  } 
+  }
 
 .skills {
     margin-top:20px;
@@ -615,5 +615,5 @@ a {
         }
       }
     }
-  } 
+  }
 </style>

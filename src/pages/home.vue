@@ -4,24 +4,27 @@
   <div class="logo">
     <img src="../assets/logo.png" />
   </div>
-  <h3 class="title">Visualiser le CV</h3>
+  <h3 class="title">Visualiser les CVs</h3>
   <div class="previews">
-    <div class="preview">
-      <router-link v-bind:to="'/resume/creativeLina'">
-        <div class="preview-wrapper">
-          <img src="../assets/preview/resume-creative.png" />
-          <span>creative</span>
-        </div>
-      </router-link>
-    </div>
+    <ul>
+      <li v-for="key in keys" :key="key">
+        <router-link :to="'/resume/'+ key + '?template=creativeLina'">{{ key }}</router-link>
+      </li>
+    </ul>
   </div>
 </div>
 </template>
 
 <script>
 import Vue from 'vue';
+import resumes from '@/registry';
 export default Vue.component('resume', {
-    name: 'app'
+    name: 'app',
+    computed: {
+        keys() {
+            return Object.keys(resumes);
+        }
+    }
 });
 </script>
 

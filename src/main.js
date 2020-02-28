@@ -3,8 +3,11 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+import { load } from './registry';
 
 Vue.config.productionTip = false;
+
+load();
 
 /* eslint-disable no-new */
 new Vue({

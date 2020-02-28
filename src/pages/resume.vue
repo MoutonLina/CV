@@ -2,7 +2,7 @@
 <div class="page-wrapper">
   <div class="page" :id="$route.params.resumeid">
     <div class="page-inner">
-      <component :is="$route.params.resumeid"></component>
+      <component :is="template" :resume="$route.params.id"></component>
     </div>
   </div>
 </div>
@@ -12,7 +12,12 @@
 import Vue from 'vue';
 import '../resumes/resumes';
 export default Vue.component('resume', {
-    name: 'app'
+    name: 'app',
+    computed: {
+        template() {
+            return this.$route.query.template || 'creativeLina';
+        }
+    }
 });
 </script>
 
