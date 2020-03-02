@@ -1,7 +1,5 @@
 import yaml from 'js-yaml';
-import {
-    PERSON
-} from '../../resume/data.yml';
+import resumes from '@/registry';
 import {
     terms
 } from '../terms';
@@ -12,9 +10,12 @@ function getVueOptions (name) {
         name: name,
         data () {
             return {
-                person: yaml.load(PERSON),
+                person: yaml.load(resumes[this.resume]),
                 terms: terms,
             };
+        },
+        props: {
+            resume: String
         },
         computed: {
             lang () {

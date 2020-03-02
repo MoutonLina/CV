@@ -13,9 +13,10 @@ export default new Router({
             component: Home
         },
         {
-            path: '/resume/:resumeid',
+            path: '/resume/:id',
             name: 'resume',
-            component: Resume
+            component: Resume,
+            props: true
         }
     ]
 });

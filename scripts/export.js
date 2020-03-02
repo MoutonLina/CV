@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const http = require('http');
 const config = require('../config');
+const TEMPLATE = 'creativeLina';
 
 const {
     interval
@@ -53,13 +54,15 @@ const convert = async () => {
     console.log('Exporting ...');
     try {
         const fullDirectoryPath = path.join(__dirname, '../pdf/');
-        const directories = getResumesFromDirectories();
-        directories.forEach(async (dir) => {
+        const files = getFiles();
+        files.forEach(async (file) => {
             const browser = await puppeteer.launch({
                 args: ['--no-sandbox']
             });
+            console.log('Generating resume', file, 'in', fullDirectoryPath);
+
             const page = await browser.newPage();
-            await page.goto(`http://localhost:${config.dev.port}/#/resume/` + dir.name, {
+            await page.goto(`http://localhost:${config.dev.port}/#/resume/${file}?template=${TEMPLATE}`, {
                 waitUntil: 'networkidle2'
             });
 
@@ -69,7 +72,7 @@ const convert = async () => {
                 fs.mkdirSync(fullDirectoryPath);
             }
             await page.pdf({
-                path: fullDirectoryPath + dir.name + '.pdf',
+                path: `${fullDirectoryPath}${file}.pdf`,
                 format: 'A4'
             });
             await browser.close();
@@ -80,22 +83,11 @@ const convert = async () => {
     console.log('Finished exports.');
 };
 
-const getResumesFromDirectories = () => {
-    const directories = getDirectories();
-    return directories
-    .map(dir => {
-        const fileName = dir.replace('.vue', '');
-        return {
-            path: fileName,
-            name: fileName
-        };
-    });
-};
-
-const getDirectories = () => {
-    const srcpath = path.join(__dirname, '../src/resumes');
+const getFiles = () => {
+    const srcpath = path.join(__dirname, '../resume');
     return fs.readdirSync(srcpath)
-    .filter(file => file !== 'resumes.js' && file !== 'template.vue' && file !== 'options.js');
+    .filter(file => file.endsWith('.yml'))
+    .map(file => file.split('.')[0]);
 };
 
 convert();
