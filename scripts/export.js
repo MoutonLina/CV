@@ -65,7 +65,7 @@ const convert = async () => {
             await page.goto(`http://localhost:${config.dev.port}/#/resume/${file}?template=${TEMPLATE}`, {
                 waitUntil: 'networkidle2'
             });
-
+            
             if (
                 !fs.existsSync(fullDirectoryPath)
             ) {

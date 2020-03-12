@@ -150,7 +150,7 @@
 
 <div>
 
-      <div v-if="person.projects"  class="projects-section section">
+      <div v-if="person.projects"  class="projects-section section page">
         <div class="section-content">
           <span class="section-headline"> {{ lang.projects }} </span>
           <div v-for="(project, index) in person.projects" :key="index"
@@ -236,6 +236,15 @@ export default Vue.component(name, getVueOptions(name));
 
 <style lang="less" scoped>
 
+@media print {
+    .page {
+        page-break-after: always;
+    }
+}
+
+
+
+
 // @accent-color: #A800FA;
 @red-color: #c00d2d;
 @accent-color: #AAAAAA;
@@ -265,6 +274,10 @@ export default Vue.component(name, getVueOptions(name));
   opacity: 1; // lower this value (0.7 approx.) to see the cover image
   position: absolute;
 }
+
+
+
+
 
 // Background cover displayed on the left-column side
 // ------------
@@ -616,4 +629,8 @@ a {
       }
     }
   }
+
+.breakafter {
+  page-break-after: always;
+}
 </style>
