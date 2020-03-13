@@ -73,6 +73,7 @@
 
 
       <div class="exellence-section section">
+      <hr class="separation">
         <div class="icon">
           <i class="material-icons small-icon">share</i>
           <span class="section-headline">{{ lang.exellence }}</span>
@@ -85,9 +86,8 @@
           </p>
         </div>
       </div>
-
-
       <div class="experience-section section">
+              <hr class="separation">
         <div class="icon">
           <i class="material-icons small-icon">work</i>
           <span class="section-headline">{{ lang.experience }}</span>
@@ -107,13 +107,11 @@
 
       <div v-if="person.skills"
         class="skills-section section">
-
+<hr class="separation">
         <div class="icon">
           <i class="material-icons">done_all</i>
           <span class="section-headline"> {{ lang.skills }} </span>
         </div>
-
-
   <div class="section-content-grid">
     <div class="skills">
       <div class="skill-block" v-for="skill in person.skills" :key="skill.name" v-if="skill.name!=='None'">
@@ -132,8 +130,13 @@
     </div>
   </div>
 </div>
+
+
+
+
 <div v-if="person.contributions"
         class="contributions-section section">
+  <hr class="separation">
   <div class="icon">
           <i class="material-icons">group</i>
           <span class="section-headline"> {{lang.contributions}} </span>
@@ -147,15 +150,72 @@
 
   </div>
 
+      <div v-if="person.listcontribs"  class="contrib-section section page">
+      <div class="section-content">
+        <span class="section-headline"> {{ lang.profilcontrib }} </span>
+           <hr class="separation">
+
+          <span class="section-content__header"> {{ lang.contributions }} </span>
+
+          <div v-for="(contrib, index) in person.listcontribs" :key="index"
+            class="section-content__text">
+            <span class="contributions section-content__subheader">Communauté : {{contrib.community}}</span>
+            <span class="contributions">Sujet de la contribution : {{contrib.subject}}</span><br>
+            <span>Description : {{contrib.description}}</span>
+            <br>&nbsp;
+          </div>
+
+      </div>
+
+      </div>
+
+      <div v-if="person.listevents"  class="contrib-section section page">
+      <div class="section-content">
+          <span class="section-content__header"> {{ lang.events }} </span>
+
+          <div v-for="(evenement, index) in person.listevents" :key="index"
+            class="section-content__text">
+            <span class="contributions section-content__subheader">Evènement : {{evenement.event}}</span>
+            <span class="contributions">Type de manifestation : {{evenement.type}}</span><br>
+            <span>Description : {{evenement.description}}</span>
+            <br>&nbsp;
+          </div>
+
+      </div>
+
+      </div>
+
+<div v-if="person.listcontribs"  class="contrib-section section page">
+      <div class="section-content">
+          <span class="section-content__header"> {{ lang.publications }} </span>
+
+          <div v-for="(publication, index) in person.listpubs" :key="index"
+            class="section-content__text">
+            <span class="contributions section-content__subheader">Publication / Date : {{publication.pub}}</span>
+            <span class="contributions">Type de Publication : {{publication.type}}</span><br>
+            <span>Description complémentaire : {{publication.description}}</span>
+            <br>&nbsp;
+          </div>
+
+      </div>
+
+      </div>
+
+
+
+
+
+
 
 <div>
 
       <div v-if="person.projects"  class="projects-section section page">
         <div class="section-content">
           <span class="section-headline"> {{ lang.projects }} </span>
+          <hr class="separation">
           <div v-for="(project, index) in person.projects" :key="index"
             class="section-content__text">
-           <hr v-if="project.enterprise !== 'None'">
+ 
       <div v-if="project.enterprise !== 'None'">
             <span class="section-content__header" v-if="project.enterprise !== 'None'"> {{ project.enterprise }} <i v-if="project.period !=='None'">({{ project.period }}) </i> </span>
             <span class="section-content__subheader" v-if="project.project !== '|None'">{{ lang.project }}</span>
@@ -169,6 +229,7 @@
             <br>
             <span class="section-content__subheader" v-if="project.technos !== '|None'">{{ lang.technos }}</span>
              <span class="section-content__text" v-if="project.technos !== '|None'"> {{ project.technos }} </span>
+           <hr>
           </div>
           </div>
         </div>
@@ -250,6 +311,9 @@ export default Vue.component(name, getVueOptions(name));
 @accent-color: #AAAAAA;
 @left-color: #DDDDDD;
 @accent-color-strong: #777777;
+.separation{
+  color: @red-color;
+}
 .resume {
   display: flex;
   position: relative;
@@ -260,7 +324,7 @@ export default Vue.component(name, getVueOptions(name));
 
 .left-column {
   width: 30%;
-  height:280mm;
+  height:277mm;
   padding: 30px;
   padding-top: 45px;
   text-align: left;
@@ -315,7 +379,9 @@ export default Vue.component(name, getVueOptions(name));
   width: 100%;
 }
 
-
+.contrib-section{
+  width: 100%;
+}
 
 
 
@@ -431,8 +497,8 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
 
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   padding-left: 32px;
 }
 
@@ -517,8 +583,8 @@ a {
 
 .section {
   margin-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .lang-icon {
@@ -606,7 +672,7 @@ a {
     margin-top:20px;
     margin-bottom:10px;
     .skill-block {
-      padding-bottom:10px;
+      padding-bottom:5px;
       display:inline-block;
       .skill {
         color:@accent-color;
@@ -629,6 +695,40 @@ a {
       }
     }
   }
+
+
+.contriutions {
+    margin-top:20px;
+    margin-bottom:10px;
+    .contributions-block {
+      padding-bottom:5px;
+      display:inline-block;
+      .community {
+        color:@accent-color;
+        float:left;
+        width:300px;
+      }
+      .subject {
+        color:@accent-color;
+        float:left;
+        width:300px;
+      }
+      .description {
+        color:@accent-color;
+        float:left;
+        width:300px;
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
 
 .breakafter {
   page-break-after: always;

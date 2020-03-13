@@ -11,6 +11,9 @@ const lang = {
     slls: 'Expertises opensources',
     projects: 'Projets',
     contributions: 'Contributions',
+    contrib: 'Principales Contributions',
+    events: 'Participation à des Evènements',
+    publications: 'Publications',
     about: 'À propos de moi',
     project: 'Projet',
     function: 'Fonction',
@@ -21,6 +24,7 @@ const lang = {
     conferences: 'Conférences',
     loisirs: 'Loisirs',
     Langues: 'Langues',
-    fierte: 'Fiertés'
+    fierte: 'Fiertés',
+    profilcontrib: 'Activités communautaires'
 };
 export default lang;
