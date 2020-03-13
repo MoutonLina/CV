@@ -150,18 +150,18 @@
 
   </div>
 
-      <div v-if="person.listcontribs"  class="contrib-section section page">
+      <div v-if="person.listcontribs != ''"  class="contrib-section section page">
       <div class="section-content">
         <span class="section-headline"> {{ lang.profilcontrib }} </span>
            <hr class="separation">
 
-          <span class="section-content__header"> {{ lang.contributions }} </span>
+          <span v-if="person.listcontribs != ''" class="section-content__header"> {{ lang.contributions }} </span>
 
           <div v-for="(contrib, index) in person.listcontribs" :key="index"
-            class="section-content__text">
-            <span class="contributions section-content__subheader">Communauté : {{contrib.community}}</span>
-            <span class="contributions">Sujet de la contribution : {{contrib.subject}}</span><br>
-            <span>Description : {{contrib.description}}</span>
+            class="section-content__text"  v-if="contrib.community != 'None'">
+            <span class="contributions section-content__subheader" v-if="contrib.community != 'None'">Communauté : {{contrib.community}}</span>
+            <span class="contributions" v-if="contrib.subject != 'None'">Sujet de la contribution : {{contrib.subject}}</span><br>
+            <span v-if="contrib.description != 'None'">Description : {{contrib.description}}</span>
             <br>&nbsp;
           </div>
 
@@ -169,15 +169,15 @@
 
       </div>
 
-      <div v-if="person.listevents"  class="contrib-section section page">
+      <div v-if="person.listevents!= ''"  class="contrib-section section page">
       <div class="section-content">
           <span class="section-content__header"> {{ lang.events }} </span>
 
           <div v-for="(evenement, index) in person.listevents" :key="index"
-            class="section-content__text">
-            <span class="contributions section-content__subheader">Evènement : {{evenement.event}}</span>
-            <span class="contributions">Type de manifestation : {{evenement.type}}</span><br>
-            <span>Description : {{evenement.description}}</span>
+            class="section-content__text" v-if="evenement.event != 'None'">
+            <span class="contributions section-content__subheader" v-if="evenement.event != 'None'">Evènement : {{evenement.event}}</span>
+            <span class="contributions" v-if="evenement.type != 'None'">Type de manifestation : {{evenement.type}}</span><br>
+            <span v-if="evenement.description != 'None'">Description : {{evenement.description}}</span>
             <br>&nbsp;
           </div>
 
@@ -185,15 +185,15 @@
 
       </div>
 
-<div v-if="person.listcontribs"  class="contrib-section section page">
+<div v-if="person.listcontribs!= ''"  class="contrib-section section page">
       <div class="section-content">
           <span class="section-content__header"> {{ lang.publications }} </span>
 
           <div v-for="(publication, index) in person.listpubs" :key="index"
-            class="section-content__text">
-            <span class="contributions section-content__subheader">Publication / Date : {{publication.pub}}</span>
-            <span class="contributions">Type de Publication : {{publication.type}}</span><br>
-            <span>Description complémentaire : {{publication.description}}</span>
+            class="section-content__text" v-if="publication.pub != 'None'">
+            <span class="contributions section-content__subheader" v-if="publication.pub != 'None'">Publication / Date : {{publication.pub}}</span>
+            <span class="contributions" v-if="publication.type != 'None'">Type de Publication : {{publication.type}}</span><br>
+            <span v-if="publication.description != 'None'">Description complémentaire : {{publication.description}}</span>
             <br>&nbsp;
           </div>
 
@@ -219,16 +219,16 @@
       <div v-if="project.enterprise !== 'None'">
             <span class="section-content__header" v-if="project.enterprise !== 'None'"> {{ project.enterprise }} <i v-if="project.period !=='None'">({{ project.period }}) </i> </span>
             <span class="section-content__subheader" v-if="project.project !== '|None'">{{ lang.project }}</span>
-            <span class="section-content__text" v-if="project.project !== '|None'"> {{ project.project }} </span>
+            <span class="section-content__text" v-if="project.project !== '|None'"> {{ project.project.replace("|","") }} </span>
             <br>
             <span class="section-content__subheader" v-if="project.function !== 'None'">{{ lang.function }}</span>
-            <span class="section-content__text" v-if="project.function !== 'None'"> {{ project.function }} </span>
+            <span class="section-content__text" v-if="project.function !== 'None'"> {{ project.function.replace("|","") }} </span>
             <br>
             <span class="section-content__subheader" v-if="project.missions !== '|None'">{{ lang.missions }}</span>
-            <span class="section-content__text" v-if="project.missions !== '|None'"> {{ project.missions }} </span>
+            <span class="section-content__text" v-if="project.missions !== '|None'"> {{ project.missions.replace("|","") }} </span>
             <br>
             <span class="section-content__subheader" v-if="project.technos !== '|None'">{{ lang.technos }}</span>
-             <span class="section-content__text" v-if="project.technos !== '|None'"> {{ project.technos }} </span>
+             <span class="section-content__text" v-if="project.technos !== '|None'"> {{ project.technos.replace("|","") }} </span>
            <hr>
           </div>
           </div>
@@ -313,6 +313,7 @@ export default Vue.component(name, getVueOptions(name));
 @accent-color-strong: #777777;
 .separation{
   color: @red-color;
+  width: 100%;
 }
 .resume {
   display: flex;
@@ -383,7 +384,9 @@ export default Vue.component(name, getVueOptions(name));
   width: 100%;
 }
 
-
+.projects-section{
+  width: 100%;
+}
 
 a {
   color: inherit;
