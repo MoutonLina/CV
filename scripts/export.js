@@ -73,7 +73,14 @@ const convert = async () => {
             }
             await page.pdf({
                 path: `${fullDirectoryPath}${file}.pdf`,
-                format: 'A4'
+                format: 'A4',
+                displayHeaderFooter: true,
+                headerTemplate:"&nbsp;",
+                footerTemplate:"<div style='height:2px; width:100%; text-align: center;font-size: 5pt;  bottom: 0; font-family:Roboto'><b>© Linagora 2020</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ***:Expert&nbsp;&nbsp;**:Confirmé&nbsp;&nbsp;*:Connaissances</div>",
+                margin:{
+                    top: "12px",
+                    bottom: "28px"
+                }
             });
             await browser.close();
         });

@@ -30,10 +30,10 @@
     <div class="slls">
       <div class="sll-block" v-for="sllbis in person.sllsbis" :key="sllbis.name">
         <span class="sll">{{sllbis.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
-        <span v-if="(sllbis.level=='Connaissances') || (sllbis.level=='Confirme') || (sllbis.level=='Expert')" class="material-icons small-icon">star</span>
+        <span v-if="(sllbis.level=='Connaissances') || (sllbis.level=='Basics') || (sllbis.level=='Confirmed') || (sllbis.level=='Confirme') || (sllbis.level=='Expert')" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
 
-        <span v-if="sllbis.level=='Confirme' || sllbis.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-if="sllbis.level=='Confirme' || (sllbis.level=='Confirmed') || sllbis.level=='Expert'" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
 
         <span v-if="sllbis.level=='Expert'" class="material-icons small-icon">star</span>
@@ -47,8 +47,8 @@
         <span class="subheadline">{{lang.education}}</span>
         <div class="hobbies-content">
           <div v-for="(education, index) in person.education" :key="index"
-            class="section-content__item">
-            <span class="section-content__text"> {{ education.contenu }} </span>
+            class="section-content__item" >
+            <span class="section-content__text" v-if="(education.contenu != 'None')"> {{ education.contenu }} </span>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@
             class="section-content__item"
             >
 
-            <span v-if="(experience.company !=='None')" class="section-content__subheader"> {{ experience.company }} ({{ experience.timeperiod }})</span>
+            <span v-if="(experience.company !=='None')" class="section-content__subheader"> {{ experience.company }} ({{ experience.timeperiod.split(".", 1)[0] }})</span>
             <span v-if="(experience.company !=='None')" class="section-content__text--light"> {{ experience.description }}</span>
           </div>
         </div>
@@ -117,10 +117,10 @@
       <div class="skill-block" v-for="skill in person.skills" :key="skill.name" v-if="skill.name!=='None'">
         <span class="skill">{{skill.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
 
-        <span v-if="skill.level=='Connaissances' || skill.level=='Confirme' || skill.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-if="skill.level=='Connaissances' || skill.level=='Basics' || skill.level=='Confirme' || skill.level=='Confirmed' || skill.level=='Expert'" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
 
-        <span v-if="skill.level=='Confirme' || skill.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-if="skill.level=='Confirme' || skill.level=='Confirmed' || skill.level=='Expert'" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
 
         <span v-if="skill.level=='Expert'" class="material-icons small-icon">star</span>
@@ -133,8 +133,8 @@
 
 
 
-
-<div v-if="person.contributions"
+<!--
+<div v-if="person.contributions!='None'"
         class="contributions-section section">
   <hr class="separation">
   <div class="icon">
@@ -146,16 +146,16 @@
             <span class="section-content__text"> {{ person.contributions }} </span>
   </div>
 </div>
-
+-->
 
   </div>
 
-      <div v-if="person.listcontribs != ''"  class="contrib-section section page">
+      <div v-if="(person.conferences!='None')||(person.contributions!='None')||(person.listcontribs!= '')||(person.listevents!= '')||(person.listpubs!= '')"  class="contrib-section section page">
       <div class="section-content">
-        <span class="section-headline"> {{ lang.profilcontrib }} </span>
+        <span class="section-headline"> {{ lang.profilcontrib }}</span>
            <hr class="separation">
 
-          <span v-if="person.listcontribs != ''" class="section-content__header"> {{ lang.contributions }} </span>
+          <span v-if="(person.listcontribs != '')||(person.contributions!='None')" class="section-content__header"> {{ lang.contributions }} </span>
 
           <div v-for="(contrib, index) in person.listcontribs" :key="index"
             class="section-content__text"  v-if="contrib.community != 'None'">
@@ -164,12 +164,12 @@
             <span v-if="contrib.description != 'None'">Description : {{contrib.description}}</span>
             <br>&nbsp;
           </div>
-
+          <div class="section-content__text"  v-if="person.contributions!='None'"> {{ person.contributions }} </div>
       </div>
 
       </div>
 
-      <div v-if="person.listevents!= ''"  class="contrib-section section page">
+      <div v-if="(person.listevents!= '')||(person.conferences!='None')"  class="contrib-section section page">
       <div class="section-content">
           <span class="section-content__header"> {{ lang.events }} </span>
 
@@ -180,12 +180,12 @@
             <span v-if="evenement.description != 'None'">Description : {{evenement.description}}</span>
             <br>&nbsp;
           </div>
-
+          <div class="section-content__text" v-if="person.conferences!='None'"> {{ person.conferences }} </div>
       </div>
 
       </div>
 
-<div v-if="person.listcontribs!= ''"  class="contrib-section section page">
+<div v-if="person.listpubs != ''"  class="contrib-section section page">
       <div class="section-content">
           <span class="section-content__header"> {{ lang.publications }} </span>
 
@@ -202,11 +202,6 @@
       </div>
 
 
-
-
-
-
-
 <div>
 
       <div v-if="person.projects"  class="projects-section section page">
@@ -219,13 +214,14 @@
       <div v-if="project.enterprise !== 'None'">
             <span class="section-content__header" v-if="project.enterprise !== 'None'"> {{ project.enterprise }} <i v-if="project.period !=='None'">({{ project.period }}) </i> </span>
             <span class="section-content__subheader" v-if="project.project !== '|None'">{{ lang.project }}</span>
-            <span class="section-content__text" v-if="project.project !== '|None'"> {{ project.project.replace("|","") }} </span>
+            <span class="section-content__text" v-if="project.project !== '|None'">  {{project.project}}
+            </span>
             <br>
             <span class="section-content__subheader" v-if="project.function !== 'None'">{{ lang.function }}</span>
             <span class="section-content__text" v-if="project.function !== 'None'"> {{ project.function.replace("|","") }} </span>
             <br>
             <span class="section-content__subheader" v-if="project.missions !== '|None'">{{ lang.missions }}</span>
-            <span class="section-content__text" v-if="project.missions !== '|None'"> {{ project.missions.replace("|","") }} </span>
+            <span v-html="project.missions" class="section-content__text" v-if="project.missions !== '|None'">@ {{ project.missions.replace("|","") }} </span>
             <br>
             <span class="section-content__subheader" v-if="project.technos !== '|None'">{{ lang.technos }}</span>
              <span class="section-content__text" v-if="project.technos !== '|None'"> {{ project.technos.replace("|","") }} </span>
@@ -325,7 +321,7 @@ export default Vue.component(name, getVueOptions(name));
 
 .left-column {
   width: 30%;
-  height:277mm;
+  height:264mm;
   padding: 30px;
   padding-top: 45px;
   text-align: left;

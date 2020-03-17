@@ -38,6 +38,7 @@
     "roboto-fontface": "0.10.0",
     "source-sans-pro": "2.20.2",
     "vue": "2.5.17",
+    "vue-nl2br": "^0.1.2",
     "vue-router": "3.0.1"
   },
   "devDependencies": {
