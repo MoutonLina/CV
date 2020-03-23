@@ -63,7 +63,8 @@ const convert = async () => {
 
             const page = await browser.newPage();
             await page.goto(`http://localhost:${config.dev.port}/#/resume/${file}?template=${TEMPLATE}`, {
-                waitUntil: 'networkidle2'
+                waitUntil: 'networkidle2',
+                timeout: 0
             });
             
             if (
@@ -76,7 +77,7 @@ const convert = async () => {
                 format: 'A4',
                 displayHeaderFooter: true,
                 headerTemplate:"&nbsp;",
-                footerTemplate:"<div style='height:2px; width:100%; text-align: center;font-size: 5pt;  bottom: 0; font-family:Roboto'><b>© Linagora 2020</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ***:Expert&nbsp;&nbsp;**:Confirmé&nbsp;&nbsp;*:Connaissances</div>",
+                footerTemplate:"<div style='height:2px; width:100%; text-align: right;font-size: 5pt;  bottom: 0; font-family:Roboto'><b>© LINAGORA 2020</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color='#c00d2d'>***&nbsp;:&nbsp;Expert&nbsp;&nbsp;&nbsp;&nbsp;**&nbsp;:&nbsp;Confirmé&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;:&nbsp;Compétent&nbsp;&nbsp;&nbsp;&nbsp; </font>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;page&nbsp;&nbsp;<span class='pageNumber'></span>/<span class='totalPages'></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>",
                 margin:{
                     top: "12px",
                     bottom: "28px"

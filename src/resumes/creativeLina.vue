@@ -28,7 +28,7 @@
     </div>
     -->
     <div class="slls">
-      <div class="sll-block" v-for="sllbis in person.sllsbis" :key="sllbis.name">
+      <div class="sll-block" v-for="sllbis in person.sllsbis" v-if="sllbis.level=='Expert'" :key="sllbis.name">
         <span class="sll">{{sllbis.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
         <span v-if="(sllbis.level=='Connaissances') || (sllbis.level=='Basics') || (sllbis.level=='Confirmed') || (sllbis.level=='Confirme') || (sllbis.level=='Expert')" class="material-icons small-icon">star</span>
         <span v-else class="material-icons small-icon">star_border</span>
@@ -42,37 +42,81 @@
       </div>
     </div>
 
+    <div class="slls">
+      <div class="sll-block" v-for="sllbis in person.sllsbis" v-if="(sllbis.level=='Confirmed')||(sllbis.level=='Confirme')" :key="sllbis.name">
+        <span class="sll">{{sllbis.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
+        <span v-if="(sllbis.level=='Connaissances') || (sllbis.level=='Basics') || (sllbis.level=='Confirmed') || (sllbis.level=='Confirme') || (sllbis.level=='Expert')" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sllbis.level=='Confirme' || (sllbis.level=='Confirmed') || sllbis.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sllbis.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+        </span>
+      </div>
     </div>
-    <div class="hobbies-container">
+
+    <div class="slls">
+      <div class="sll-block" v-for="sllbis in person.sllsbis" v-if="(sllbis.level=='Basics')||(sllbis.level=='Connaissances')" :key="sllbis.name">
+        <span class="sll">{{sllbis.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
+        <span v-if="(sllbis.level=='Connaissances') || (sllbis.level=='Basics') || (sllbis.level=='Confirmed') || (sllbis.level=='Confirme') || (sllbis.level=='Expert')" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sllbis.level=='Confirme' || (sllbis.level=='Confirmed') || sllbis.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sllbis.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="slls">
+      <div class="sll-block" v-for="sllbis in person.sllsbis" v-if="(sllbis.level=='Selectionner')||(sllbis.level=='Select')" :key="sllbis.name">
+        <span class="sll">{{sllbis.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
+        <span v-if="(sllbis.level=='Connaissances') || (sllbis.level=='Basics') || (sllbis.level=='Confirmed') || (sllbis.level=='Confirme') || (sllbis.level=='Expert')" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sllbis.level=='Confirme' || (sllbis.level=='Confirmed') || sllbis.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sllbis.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+        </span>
+      </div>
+    </div>
+
+
+
+
+
+
+
+  </div>
+  <div class="hobbies-container">
         <span class="subheadline">{{lang.education}}</span>
         <div class="hobbies-content">
           <div v-for="(education, index) in person.education" :key="index"
             class="section-content__item" >
             <span class="section-content__text" v-if="(education.contenu != 'None')"> {{ education.contenu }} </span>
           </div>
-        </div>
-      </div>
+       </div>
+  </div>
 
-
-
-
-
-
-
-    </div>
+</div>
 
     <div class="left-column-bg">
       <!-- <div><a href="/otot">toto</a></div> -->
     </div>
 
-    <div class="right-column">
+<div class="right-column">
 
-      <div class="section-content__text">
-        {{ person.about }}
-      </div>
+  <div class="section-content__text" v-html="person.about">
+  </div>
 
 
-      <div class="exellence-section section">
+  <div class="exellence-section section">
       <hr class="separation">
         <div class="icon">
           <i class="material-icons small-icon">share</i>
@@ -93,21 +137,20 @@
           <span class="section-headline">{{ lang.experience }}</span>
         </div>
 
-        <div class="section-content">
+      <div class="section-content">
           <div v-for="(experience, index) in person.experience" :key="index"
             class="section-content__item"
             >
-
-            <span v-if="(experience.company !=='None')" class="section-content__subheader"> {{ experience.company }} ({{ experience.timeperiod.split(".", 1)[0] }})</span>
-            <span v-if="(experience.company !=='None')" class="section-content__text--light"> {{ experience.description }}</span>
+          <span v-if="(experience.company !=='None')" class="section-content__subheader"> {{ experience.company }} ({{ experience.timeperiod.split(".", 1)[0] }})</span>
+          <span v-if="(experience.company !=='None')" class="section-content__text--light"> {{ experience.description }}</span>
           </div>
         </div>
       </div>
 
 
-      <div v-if="person.skills"
+     <div v-if="(person.skills)&&(person.experience.length<4)"
         class="skills-section section">
-<hr class="separation">
+        <hr class="separation">
         <div class="icon">
           <i class="material-icons">done_all</i>
           <span class="section-headline"> {{ lang.skills }} </span>
@@ -148,52 +191,89 @@
 </div>
 -->
 
-  </div>
+</div>
 
-      <div v-if="(person.conferences!='None')||(person.contributions!='None')||(person.listcontribs!= '')||(person.listevents!= '')||(person.listpubs!= '')"  class="contrib-section section page">
+
+<div v-if="(person.skills)&&(person.experience.length>=4)"
+        class="section-content">
+        <span class="section-headline"> {{ lang.skills }}</span>
+           <hr class="separation">
+  <div class="section-content-grid">
+    <div class="skills">
+      <div class="skill-block" v-for="skill in person.skills" :key="skill.name" v-if="skill.name!=='None'">
+        <span class="skill">{{skill.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
+
+        <span v-if="skill.level=='Connaissances' || skill.level=='Basics' || skill.level=='Confirme' || skill.level=='Confirmed' || skill.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="skill.level=='Confirme' || skill.level=='Confirmed' || skill.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="skill.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div style="page-break-before:always;" v-if="(person.conferences!='None')||(person.contributions!='None')||(person.contrib_ct== '1')||(person.event_ct== '1')||(person.pub_ct== '1')"  class="contrib-section section page" >
+      
       <div class="section-content">
         <span class="section-headline"> {{ lang.profilcontrib }}</span>
            <hr class="separation">
 
-          <span v-if="(person.listcontribs != '')||(person.contributions!='None')" class="section-content__header"> {{ lang.contributions }} </span>
+          <span v-if="(person.contrib_ct == '1')||(person.contributions!='None')" class="section-content__header"> {{ lang.contributions }} </span>
 
           <div v-for="(contrib, index) in person.listcontribs" :key="index"
             class="section-content__text"  v-if="contrib.community != 'None'">
-            <span class="contributions section-content__subheader" v-if="contrib.community != 'None'">Communauté : {{contrib.community}}</span>
-            <span class="contributions" v-if="contrib.subject != 'None'">Sujet de la contribution : {{contrib.subject}}</span><br>
-            <span v-if="contrib.description != 'None'">Description : {{contrib.description}}</span>
+            <span class="contributions section-content__subheader" v-if="contrib.community != 'None'" v-html="'Communauté : '+contrib.community"></span>
+            <span class="contributions" v-if="contrib.subject != 'None'" v-html="'Sujet de la contribution : '+contrib.subject" ></span><br>
+            <span v-if="contrib.description != 'None'" v-html="'Description : '+contrib.description"></span>
             <br>&nbsp;
           </div>
-          <div class="section-content__text"  v-if="person.contributions!='None'"> {{ person.contributions }} </div>
+          <div class="section-content__text"  v-if="(person.contributions!='None')&&(person.contrib_ct == '0')" v-html="person.contributions"></div>
       </div>
 
       </div>
 
-      <div v-if="(person.listevents!= '')||(person.conferences!='None')"  class="contrib-section section page">
+      <div v-if="(person.event_ct== '1')||(person.conferences!='None')"  class="contrib-section section page">
       <div class="section-content">
           <span class="section-content__header"> {{ lang.events }} </span>
 
           <div v-for="(evenement, index) in person.listevents" :key="index"
             class="section-content__text" v-if="evenement.event != 'None'">
-            <span class="contributions section-content__subheader" v-if="evenement.event != 'None'">Evènement : {{evenement.event}}</span>
-            <span class="contributions" v-if="evenement.type != 'None'">Type de manifestation : {{evenement.type}}</span><br>
-            <span v-if="evenement.description != 'None'">Description : {{evenement.description}}</span>
+            <span class="contributions section-content__subheader" v-if="evenement.event != 'None'" v-html="'Evènement : '+evenement.event"></span>
+            <span class="contributions" v-if="evenement.type != 'None'" v-html="'Type de manifestation : '+evenement.type"></span><br>
+            <span v-if="evenement.description != 'None'" v-html="'Description : '+evenement.description"></span>
             <br>&nbsp;
           </div>
-          <div class="section-content__text" v-if="person.conferences!='None'"> {{ person.conferences }} </div>
+          <div class="section-content__text" v-if="(person.conferences!='None')&&(person.event_ct == '0')" v-html="person.conferences"></div>
       </div>
 
       </div>
 
-<div v-if="person.listpubs != ''"  class="contrib-section section page">
+<div v-if="person.pub_ct == '1'"  class="contrib-section section page">
       <div class="section-content">
           <span class="section-content__header"> {{ lang.publications }} </span>
 
           <div v-for="(publication, index) in person.listpubs" :key="index"
             class="section-content__text" v-if="publication.pub != 'None'">
-            <span class="contributions section-content__subheader" v-if="publication.pub != 'None'">Publication / Date : {{publication.pub}}</span>
-            <span class="contributions" v-if="publication.type != 'None'">Type de Publication : {{publication.type}}</span><br>
-            <span v-if="publication.description != 'None'">Description complémentaire : {{publication.description}}</span>
+            <span class="contributions section-content__subheader" v-if="publication.pub != 'None'" v-html="'Publication / Date : '+publication.pub"></span>
+            <span class="contributions" v-if="publication.type != 'None'" v-html="'Type de Publication : '+publication.type"></span><br>
+            <span v-if="publication.description != 'None'" v-html="'Description complémentaire : '+publication.description"></span>
             <br>&nbsp;
           </div>
 
@@ -201,10 +281,9 @@
 
       </div>
 
-
 <div>
 
-      <div v-if="person.projects"  class="projects-section section page">
+      <div v-if="person.projects"  class="projects-section section"   style="page-break-inside: avoid;">
         <div class="section-content">
           <span class="section-headline"> {{ lang.projects }} </span>
           <hr class="separation">
@@ -212,19 +291,18 @@
             class="section-content__text">
  
       <div v-if="project.enterprise !== 'None'">
-            <span class="section-content__header" v-if="project.enterprise !== 'None'"> {{ project.enterprise }} <i v-if="project.period !=='None'">({{ project.period }}) </i> </span>
-            <span class="section-content__subheader" v-if="project.project !== '|None'">{{ lang.project }}</span>
-            <span class="section-content__text" v-if="project.project !== '|None'">  {{project.project}}
-            </span>
+            <span class="section-content__header" v-if="project.enterprise !== 'None'" v-html="project.enterprise"> (<i v-if="project.period !=='None'" v-html="project.period"></i>) </span>
+            <span class="section-content__subheader" v-if="(project.project !== '|None')&&(project.project !== 'None')">{{ lang.project }}</span>
+            <span class="section-content__text" v-if="(project.project !== '|None')&&(project.project !== 'None')" v-html="project.project"></span>
             <br>
             <span class="section-content__subheader" v-if="project.function !== 'None'">{{ lang.function }}</span>
-            <span class="section-content__text" v-if="project.function !== 'None'"> {{ project.function.replace("|","") }} </span>
+            <span class="section-content__text" v-if="project.function !== 'None'" v-html="project.function.replace('', '<br />')"></span>
             <br>
             <span class="section-content__subheader" v-if="project.missions !== '|None'">{{ lang.missions }}</span>
-            <span v-html="project.missions" class="section-content__text" v-if="project.missions !== '|None'">@ {{ project.missions.replace("|","") }} </span>
+            <span class="section-content__text"  v-html="project.missions.replace('', '<br />')"   v-if="project.missions !== '|None'"></span>
             <br>
             <span class="section-content__subheader" v-if="project.technos !== '|None'">{{ lang.technos }}</span>
-             <span class="section-content__text" v-if="project.technos !== '|None'"> {{ project.technos.replace("|","") }} </span>
+             <span class="section-content__text"  v-html="project.technos"    v-if="project.technos !== '|None'"></span>
            <hr>
           </div>
           </div>
@@ -246,7 +324,7 @@
                 <div class="section-content__text">  <div>
 
           <span class="section-content__header" v-if="person.conferences!=='None'"> {{ lang.conferences }}</span>
-            <span class="section-content__text" v-if="person.conferences!=='None'"> {{ person.conferences }} </span>
+            <span class="section-content__text" v-if="person.conferences!=='None'" v-html="person.conferences"></span>
             <br>
 
             <span class="section-content__header"> {{ lang.Langues }}</span>
@@ -256,13 +334,13 @@
 
             <br>
             <span class="section-content__header" v-if="person.loisirs!=='None'"> {{ lang.loisirs }}</span>
-            <span class="section-content__text" v-if="person.loisirs!=='None'"> {{ person.loisirs }} </span>
+            <span class="section-content__text" v-if="person.loisirs!=='None'" v-html="person.loisirs"> person.loisirs }} </span>
             <br>
 
 
             <br>
             <span class="section-content__header" v-if="person.fierte!=='None'"> {{ lang.fierte }}</span>
-            <span class="section-content__text" v-if="person.fierte!=='None'"> {{ person.fierte }} </span>
+            <span class="section-content__text" v-if="person.fierte!=='None'" v-html="person.fierte"> {{ person.fierte }} </span>
             <br>
 
 
@@ -567,6 +645,7 @@ a {
   display: block;
   font-weight: 300;
   white-space: pre-line;
+  word-wrap: break-word;
 }
 
 .section-content__text--light {
@@ -640,8 +719,8 @@ a {
 
 
   .slls {
-    margin-top:20px;
-    margin-bottom:10px;
+    margin-top:5px;
+    margin-bottom:5px;
     .sll-block {
       padding-bottom:10px;
       display:inline-block;
@@ -677,6 +756,7 @@ a {
         color:@accent-color;
         float:left;
         width:300px;
+        margin-left:15px;
       }
       .skill-bar {
         float:right;

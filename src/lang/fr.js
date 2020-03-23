@@ -6,7 +6,7 @@ const lang = {
     experience: 'Expériences significatives',
     exellence: 'Domaines d\'exellence',
     caracteristics: 'Compétences caractéristiques',
-    education: 'Je suis...',
+    education: 'Formation et spécialités',
     skills: 'Expertises',
     slls: 'Expertises opensources',
     projects: 'Projets',

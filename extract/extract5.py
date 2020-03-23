@@ -4,20 +4,52 @@ from unidecode import unidecode
 import os
 import os.path
 import glob
+tri_contributeurs=[]
+#tri_contributeurs=["ADU","CHA","DCO","MBAI","NCH","ROU","VZU","FMA","IAB","DCA","PVI","JSB","SEL","RBO","MSE","CDE","AHE","DLA","CTT","GSH","SBA","YBE","ZSE"]
+#tri_contributeurs=["ADU","CHA","DCO","MBAI","NCH"]
+#tri_contributeurs=["IAB"]
+#tri_contributeurs=["ROU"]
+#tri_contributeurs=["MBAI"]
+#tri_contributeurs=["JPL"]
 
+contrib_absents=[]
+contrib_presents=[]
+contrib_absents_finaux=[]
+
+#fonction de nettoyage de caractères spéciaux
+def nettoyage(champ):
+      return champ.replace(":","&#58;").replace("*","&#149;").replace("'","&#145;").replace("\n","<br/>").replace(",","&#44;").replace(".","").replace(" #"," &#35;").replace("-","").replace("[","&#91;").replace("]","&#93;").replace("*","&#42;").replace("-","&#45;").replace("`o"," ")      
+                   
 
 #nettoyage du dossier cible des yml
-for fold in os.listdir('../resume'):
-    if fold.endswith('.yml'):
-         os.remove('../resume/'+fold)
+for foldyml in os.listdir('../resume'):
+    if foldyml.endswith('.yml'):
+         os.remove('../resume/'+foldyml)
+
+#nettoyage du dossier cible des pdf
+for foldpdf in os.listdir('../pdf'):
+    if foldpdf.endswith('.pdf'):
+         os.remove('../pdf/'+foldpdf)
 
 #traitement des formulaires de CV
 odsfiles = []
+fichier_a_traiter= []
 for file in glob.glob("Formulaires/*.ods"):
     odsfiles.append(file)
 
+#recuperation des fiches contributeurs
+if(tri_contributeurs!=[]):
+    for fc in odsfiles:  
+        #print fc
+        id_fichier=os.path.splitext(fc)[0]
+        id_fichier.split("_")[0].split("/")[1]
+        if id_fichier.split("_")[0].split("/")[1] in tri_contributeurs:
+            fichier_a_traiter.append(fc)
+else:
+    fichier_a_traiter=odsfiles
+    #print fichier_a_traiter
 
-for f in odsfiles:
+for f in fichier_a_traiter:
     doc = opendoc(f)
     sheets=doc.sheets
     targetsheet='Survey'
@@ -26,8 +58,22 @@ for f in odsfiles:
             targetsheet='Formulaire'
     sheet = doc.sheets[targetsheet]
     # for sheet in doc.sheets:
-    import yaml
+    tab_contrib=["D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X"]
+    #tab_contrib=["D","E"]
+    #trigram = unidecode(sheet['C11'].value)
 
+    id_fichier=os.path.splitext(f)[0]
+    trigram=id_fichier.split("_")[0].split("/")[1]
+
+
+
+    contriblist=''
+    contrib_ct=0
+    eventlist=''
+    event_ct=0
+    publicationlist=''
+    pub_ct=0
+    import yaml
 
     islls=23
     sllschain=''
@@ -38,7 +84,8 @@ for f in odsfiles:
     isllsbis=49
     sllsbischain=''
     while isllsbis < 65 : 
-        sllsbischain += "{name: "+ unidecode(unicode(sheet['C'+ str(isllsbis)].value)) +" , level: " + unidecode(unicode(sheet['G' + str(isllsbis)].value))+ "},"
+        sllsbischain += "{name: "+ unidecode(unicode(sheet['C'+ str(isllsbis)].value)) +" ,"
+        sllsbischain += "level: " + unidecode(unicode(sheet['G' + str(isllsbis)].value))+ "},"
         isllsbis += 1
 
     iproject=734
@@ -50,8 +97,15 @@ for f in odsfiles:
     #iproject=286
     projectchain=''
     while iproject >= 83 : 
-        projectchain += "{enterprise: "+ unidecode(unicode(sheet['E'+ str(iproject + 1)].value)).replace(":"," ").replace("'"," ") +" , period: " + unidecode(unicode(sheet['E' + str(iproject)].value)).replace(":"," ").replace("["," ").replace("]"," ").replace("'"," ")+ ", project: '" + unidecode(unicode(sheet['E' + str(iproject + 2)].value)).replace(":"," ").replace("'"," ")+ "', function: " + unidecode(unicode(sheet['E' + str(iproject + 3)].value)).replace(":"," ").replace("'"," ")+ ", missions: '|" + unidecode(unicode(sheet['E' + str(iproject + 4)].value)).replace(":"," ").replace("'"," ")+ "', technos: '|" + unidecode(unicode(sheet['E' + str(iproject + 5)].value)).replace(":"," ").replace("'"," ")+ "'},"
-        print unidecode(unicode(sheet['E' + str(iproject + 2)].value)).replace(":"," ").replace("["," ").replace("]"," ").replace("'"," ")
+        projectchain += "{enterprise: "+ nettoyage(unidecode(unicode(sheet['E'+ str(iproject + 1)].value))) +"," 
+        projectchain += "period: " + nettoyage(unidecode(unicode(sheet['E' + str(iproject)].value))) + ","
+        projectchain += "project: " + nettoyage(unidecode(unicode(sheet['E' + str(iproject + 2)].value))) + ","
+        projectchain += "function: " + nettoyage(unidecode(unicode(sheet['E' + str(iproject + 3)].value))) + ","
+        projectchain += "missions: " + nettoyage(unidecode(unicode(sheet['E' + str(iproject + 4)].value))) + ","
+        #projectchain += "missions: " + nettoyage(unidecode(unicode(sheet['E' + str(iproject + 4)].value)))+ ","
+        projectchain += "technos: " + nettoyage(unidecode(unicode(sheet['E' + str(iproject + 5)].value))) + "},"
+        
+        #print unidecode(unicode(sheet['E' + str(iproject + 2)].value)).replace(":"," ").replace("["," ").replace("]"," ").replace("'"," ")
         iproject -= 7
     
 
@@ -65,17 +119,23 @@ for f in odsfiles:
     
 
 
-    anexptab = str(sheet['C18'].value).split(".")
-    anexp=anexptab[0]
-    #aboutchain= "| \n\t" + unidecode(sheet['H4'].value)
-    #print unidecode(sheet['H4'].value)
-    aboutchain= unidecode(sheet['H4'].value)
+    #anexptab = str(sheet['C18'].value).split(".")
+    try :
+        #anexptab = str(sheet['C18'].value.split("."))
+        anexptab=str(sheet['C18'].value).split(".")
+        anexp=anexptab[0]
+    except :
+        print "pb : "
+        print trigram
+        print "fin pb"
+        anexp=''
+
+    
+    
+    aboutchain= unidecode(unicode(sheet['H4'].value)).replace(":","&#58;").replace("*","&#149;").replace("'","&#145;").replace("\n","<br />").replace(",","&#44;").replace(".","&#46;")
+    #aboutchain= unidecode(unicode(sheet['H4'].value))    
     #on va rechercher les elements dans la fiche contrib si elle existe 
-    tab_contrib=["D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X"]
-    trigram = unidecode(sheet['C11'].value)
-    contriblist=''
-    eventlist=''
-    publicationlist=''
+    
     for filecontrib in glob.glob("Fichescontrib/*.ods"):
         #print os.path.basename(filecontrib).split("_",0)
         fichier=os.path.basename(filecontrib)
@@ -89,16 +149,34 @@ for f in odsfiles:
 
             for y in tab_contrib:
                 #print y
-                #print unidecode(unicode(sheetcontrib[y + "4"].value))
-                contriblist += "{community: "+ unidecode(unicode(sheetcontrib[y + "4"].value)).replace(":"," ") +" , subject: " + unidecode(unicode(sheetcontrib[y + "5"].value)).replace(":"," ") +" , description: " + unidecode(unicode(sheetcontrib[y + "6"].value)).replace(":"," ") + "},"
-                eventlist += "{event: "+ unidecode(unicode(sheetcontrib[y + "10"].value)).replace(":"," ") +" , type: " + unidecode(unicode(sheetcontrib[y + "11"].value)).replace(":"," ") +" , description: " + unidecode(unicode(sheetcontrib[y + "12"].value)).replace(":"," ") + "},"
-                publicationlist += "{pub: "+ unidecode(unicode(sheetcontrib[y + "15"].value)).replace(":"," ") +" , type: " + unidecode(unicode(sheetcontrib[y + "16"].value)).replace(":"," ") +" , description: " + unidecode(unicode(sheetcontrib[y + "17"].value)).replace(":"," ") + "},"
+                try: 
+                    #contriblist += "{community: "+ unidecode(unicode(sheetcontrib[y + "4"].value)).replace(":"," ") +" , subject: " + unidecode(unicode(sheetcontrib[y + "5"].value)).replace(":"," ") +" , description: " + unidecode(unicode(sheetcontrib[y + "6"].value)).replace(":","&#58;").replace("*","&#149;").replace("'","&#145;").replace("\n","<br/>").replace(",","&#44;").replace(".","").replace(" #"," &#35;").replace("-","") + "},"
+                    contriblist += "{community: "+ nettoyage(unidecode(unicode(sheetcontrib[y + "4"].value))) +" , subject: " + nettoyage(unidecode(unicode(sheetcontrib[y + "5"].value)))+" , description: " + nettoyage(unidecode(unicode(sheetcontrib[y + "6"].value))) + "},"
+                    if(nettoyage(unidecode(unicode(sheetcontrib["D4"].value)))!='None'):
+                        contrib_ct=1
+                except:
+                    print "pb contrib "+trigram
+
+                try: 
+                    eventlist += "{event: "+ nettoyage(unidecode(unicode(sheetcontrib[y + "10"].value))) +" , description: " + nettoyage(unidecode(unicode(sheetcontrib[y + "12"].value))) + "},"
+                    if(nettoyage(unidecode(unicode(sheetcontrib["D10"].value)))!='None'):
+                        event_ct=1
+                except:
+                    print "pb event "+trigram
+
+                try: 
+                    publicationlist += "{pub: "+ nettoyage(unidecode(unicode(sheetcontrib[y + "15"].value))) + "},"
+                    if(nettoyage(unidecode(unicode(sheetcontrib["D15"].value)))!='None'):
+                        pub_ct=1
+                except:
+                    print "pb publication "+trigram
+
     #on va rechercher les elements dans la fiche contrib si elle existe 
 
     dict_file ={
     'name' : 
         {'first':unidecode(sheet['C15'].value) , 
-        'trigramme':unidecode(sheet['C11'].value), 
+        'trigramme':trigram, 
         'last':unidecode(sheet['C14'].value)}
     ,
     'anexp': anexp,
@@ -109,11 +187,11 @@ for f in odsfiles:
 
     'exellence' :
             [
-            {'content': unidecode(unicode(sheet['M15'].value))},
-            {'content': unidecode(unicode(sheet['M17'].value))},
-            {'content': unidecode(unicode(sheet['M19'].value))},
-            {'content': unidecode(unicode(sheet['M21'].value))},
-            {'content': unidecode(unicode(sheet['M23'].value))}]
+            {'content': unidecode(unicode(sheet['M15'].value)).replace("\n"," ")},
+            {'content': unidecode(unicode(sheet['M17'].value)).replace("\n"," ")},
+            {'content': unidecode(unicode(sheet['M19'].value)).replace("\n"," ")},
+            {'content': unidecode(unicode(sheet['M21'].value)).replace("\n"," ")},
+            {'content': unidecode(unicode(sheet['M23'].value)).replace("\n"," ")}]
     ,
 
     'experience' :
@@ -124,7 +202,7 @@ for f in odsfiles:
     {'company': unidecode(unicode(sheet['J45'].value)) , 'timeperiod':unidecode(unicode(sheet['J46'].value)) , 'description': unidecode(unicode(sheet['J47'].value)) },
     {'company': unidecode(unicode(sheet['J50'].value)) , 'timeperiod':unidecode(unicode(sheet['J51'].value)) , 'description': unidecode(unicode(sheet['J52'].value)) },
     {'company': unidecode(unicode(sheet['J55'].value)) , 'timeperiod':unidecode(unicode(sheet['J56'].value)) , 'description': unidecode(unicode(sheet['J57'].value)) },
-    {'company': unidecode(unicode(sheet['J60'].value)) , 'timeperiod':unidecode(unicode(sheet['J61'].value)) , 'description': unidecode(unicode(sheet['J62'].value)) },
+    {'company': unidecode(unicode(sheet['J60'].value)) , 'timeperiod':unidecode(unicode(sheet['J61'].value)) , 'description': unidecode(unicode(sheet['J62'].value)).replace("\n","") },
     ]
     ,
 
@@ -190,32 +268,32 @@ for f in odsfiles:
     contriblist
     ]
     ,
-
+    'contrib_ct' : contrib_ct,
     'listevents' :
     [
     eventlist
     ]
     ,
-
+    'event_ct' : event_ct,
     'listpubs' :
     [
     publicationlist
     ]
     ,
-
+    'pub_ct' : pub_ct,
     'projects' :
     [
     projectchain
     ]
     ,
 
-    'contributions' : unidecode(unicode(sheet['L77'].value)).replace(":"," "),
+    'contributions' : unidecode(unicode(sheet['L77'].value)).replace(":","&#58;").replace("*","&#149;").replace("'","&#145;").replace("\n","<br/>").replace(",","&#44;"),
 
-    'conferences' : unidecode(unicode(sheet['I66'].value)).replace(":"," "),
+    'conferences' : unidecode(unicode(sheet['I66'].value)).replace(":","&#58;").replace("*","&#149;").replace("'","&#145;").replace("\n","<br/>").replace(",","&#44;"),
 
-    'fierte' : unidecode(unicode(sheet['L91'].value)).replace(":"," "),
+    'fierte' : unidecode(unicode(sheet['L91'].value)).replace(":","&#58;").replace("*","&#149;").replace("'","&#145;").replace("\n","<br/>").replace(",","&#44;"),
 
-    'loisirs' : unidecode(unicode(sheet['N55'].value)).replace(":"," "),
+    'loisirs' : unidecode(unicode(sheet['N55'].value)).replace(":","&#58;").replace("*","&#149;").replace("'","&#145;").replace("\n","<br/>").replace(",","&#44;"),
 
 
 
@@ -230,36 +308,53 @@ for f in odsfiles:
 
 
 
+    if ((trigram in tri_contributeurs) or (tri_contributeurs==[])):
+        with open('./yamlfiles/' + unidecode(trigram) + '_tmp.yml', 'w') as file:
+            file.write("/* #*/ export const PERSON = ` \n")
+            yaml.unicode_supplementary=False
+            documents = yaml.dump(dict_file, file)
+            file.write("\n`")
+            file.close()
 
-    with open('./yamlfiles/' + unidecode(sheet['C11'].value) + '_tmp.yml', 'w') as file:
-        file.write("/* #*/ export const PERSON = ` \n")
-        yaml.unicode_supplementary=False
-        documents = yaml.dump(dict_file, file)
-        file.write("\n`")
-        file.close()
+        with open('./yamlfiles/' + unidecode(trigram) + '_tmp.yml','r') as fichier:
+            #print unidecode(trigram)
+            #with open('./yamlfiles/' + unidecode(sheet['C11'].value) + '.yml','w') as fichierFinale:
+            with open('../resume/' + unidecode(trigram) + '.yml','w') as fichierFinale:
+                lignes = fichier.readlines()                # On parcours les lignes du fichier source
+                for ligne in lignes:
+                    lignetmp=ligne.replace("['","[")
+                    lignetmp=lignetmp.replace("''None","'None")
+                    lignetmp=lignetmp.replace("project: ''","project: '")
+                    lignetmp=lignetmp.replace("'', function","', function")
+                    lignetmp=lignetmp.replace("missions: ''","missions: '")
+                    lignetmp=lignetmp.replace("technos: ''","technos: '")
+                    #lignetmp=lignetmp.replace("''","'")
+                    lignetmp=lignetmp.replace("''|","'|")
+                    lignetmp=lignetmp.replace("''},","'},")
+                    lignetmp=lignetmp.replace("'',","',")
+                    lignetmp=lignetmp.replace("\"]","]")
+                    lignetmp=lignetmp.replace("[\"","[")
+                    lignetmp=lignetmp.replace("\"|","|")
+                    lignetmp=lignetmp.replace("\"","")
+                    lignetmp=lignetmp.replace("'","'")
+                    lignetmp=lignetmp.replace("`o"," ") 
+                    lignetmp=lignetmp.replace("''Description","Description")
+                    lignetmp=lignetmp.replace("- {company: None, description: None, timeperiod: None}","")
+                    ligneFinale=lignetmp.replace("']","]")
+                    
 
-    with open('./yamlfiles/' + unidecode(sheet['C11'].value) + '_tmp.yml','r') as fichier:
-        #with open('./yamlfiles/' + unidecode(sheet['C11'].value) + '.yml','w') as fichierFinale:
-        with open('../resume/' + unidecode(sheet['C11'].value) + '.yml','w') as fichierFinale:
-            lignes = fichier.readlines()                # On parcours les lignes du fichier source
-            for ligne in lignes:
-                lignetmp=ligne.replace("['","[")
-                lignetmp=lignetmp.replace("project: ''","project: '")
-                lignetmp=lignetmp.replace("'', function","', function")
-                lignetmp=lignetmp.replace("missions: ''","missions: '")
-                lignetmp=lignetmp.replace("technos: ''","technos: '")
-                lignetmp=lignetmp.replace("''|","'|")
-                lignetmp=lignetmp.replace("''},","'},")
-                lignetmp=lignetmp.replace("'',","',")
-                lignetmp=lignetmp.replace("\"]","]")
-                lignetmp=lignetmp.replace("[\"","[")
-                lignetmp=lignetmp.replace("\"|","|")
-                lignetmp=lignetmp.replace("\"","")
-                ligneFinale=lignetmp.replace("']","]")
-                
+                    fichierFinale.write(ligneFinale)               # On écrit la nouvelle ligne dans le nouveau fichier
+            fichierFinale.close()                     # Fermeture du fichier source
+        fichier.close()
+        os.remove('./yamlfiles/' + unidecode(trigram) + '_tmp.yml')
+        contrib_presents.append(trigram)
+    else :
+        #print unidecode(sheet['C11'].value) 
+        contrib_absents.append(trigram)
 
-                fichierFinale.write(ligneFinale)               # On écrit la nouvelle ligne dans le nouveau fichier
-        fichierFinale.close()                     # Fermeture du fichier source
-    fichier.close()
-    os.remove('./yamlfiles/' + unidecode(sheet['C11'].value) + '_tmp.yml')
+for c in tri_contributeurs:
+    if c not in contrib_presents:
+        contrib_absents_finaux.append(c)
+print contrib_absents_finaux
+#os.system("npm run export")
 os.system("npm run dev")
