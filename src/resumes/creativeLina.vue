@@ -148,7 +148,7 @@
       </div>
 
 
-     <div v-if="(person.skills)&&(person.experience.length<4)"
+     <div v-if="(person.skills)&&(person.experience.length<5)"
         class="skills-section section">
         <hr class="separation">
         <div class="icon">
@@ -194,7 +194,7 @@
 </div>
 
 
-<div v-if="(person.skills)&&(person.experience.length>=4)"
+<div v-if="(person.skills)&&(person.experience.length>=5)"
         class="section-content">
         <span class="section-headline"> {{ lang.skills }}</span>
            <hr class="separation">
@@ -291,7 +291,7 @@
             class="section-content__text">
  
       <div v-if="project.enterprise !== 'None'">
-            <span class="section-content__header" v-if="project.enterprise !== 'None'" v-html="project.enterprise"> (<i v-if="project.period !=='None'" v-html="project.period"></i>) </span>
+            <span class="section-content__header"> <b v-if="project.enterprise !== 'None'" v-html="project.enterprise" ></b> (<i v-if="project.period !=='None'" v-html="project.period"></i>) </span>  
             <span class="section-content__subheader" v-if="(project.project !== '|None')&&(project.project !== 'None')">{{ lang.project }}</span>
             <span class="section-content__text" v-if="(project.project !== '|None')&&(project.project !== 'None')" v-html="project.project"></span>
             <br>
