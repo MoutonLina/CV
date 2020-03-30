@@ -256,7 +256,7 @@
           <div v-for="(evenement, index) in person.listevents" :key="index"
             class="section-content__text" v-if="evenement.event != 'None'">
             <span class="contributions section-content__subheader" v-if="evenement.event != 'None'" v-html="'Evènement : '+evenement.event"></span>
-            <span class="contributions" v-if="evenement.type != 'None'" v-html="'Type de manifestation : '+evenement.type"></span><br>
+            <span class="contributions" v-if="(evenement.type != 'None')&&(evenement.type != 'undefined')" v-html="'Type de manifestation : '+evenement.type"></span><br>
             <span v-if="evenement.description != 'None'" v-html="'Description : '+evenement.description"></span>
             <br>&nbsp;
           </div>
