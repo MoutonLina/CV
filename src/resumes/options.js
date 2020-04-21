@@ -5,6 +5,8 @@ import {
 } from '../terms';
 
 // Called by templates to decrease redundancy
+
+
 function getVueOptions (name) {
     const opt = {
         name: name,
@@ -62,6 +64,18 @@ function getVueOptions (name) {
 
                 return links;
             },
+
+            LinaExperience() {
+                const experience = {};
+                experience.an = '';
+                if((this.person.experience === null) || (this.person.experience === undefined)) {
+                    experience.an = '';
+                }else{
+                    experience.an = this.person.experience;
+                }
+                return experience;
+            },
+            
         }
     };
     return opt;

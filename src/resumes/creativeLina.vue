@@ -4,11 +4,13 @@
       <div>
         <div><img src="../../resume/Linagora-RedOutline-RVB.png"></div>
         <div class="headline">
-          <span class="uppercase"> {{ person.name.trigramme }} </span>
+          <span class="uppercase"> {{ person.name.trigramme }} </span> 
         </div>
+          <span v-if="(person.contrib_ct == '1')" class="txt-full-white"><b><u>Contributeur open source</u></b><br /></span>
+          <span v-if="(person.partner == 'Oui')" class="txt-full-white">partenaire OBA<br /></span>
           <span class="txt-full-white"> {{ person.position }} </span>
           <br/>
-          <span> {{ person.anexp | round }}  {{ lang.anexp }}</span>
+          <span v-if="typeof(person.anexp) !== null"> {{ person.anexp | round }}  {{ lang.anexp }}</span>
       </div>
     <div class="section-content-grid2">
       <div v-for="(caracteristic, index) in person.caracteristics" :key="index">
@@ -27,6 +29,8 @@
       </div>
     </div>
     -->
+
+<!--
     <div class="slls">
       <div class="sll-block" v-for="sllbis in person.sllsbis" v-if="sllbis.level=='Expert'" :key="sllbis.name">
         <span class="sll">{{sllbis.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
@@ -86,10 +90,68 @@
         </span>
       </div>
     </div>
+-->
 
+    <div class="slls">
+      <div class="sll-block" v-for="sll in person.slls" v-if="sll.level=='Expert'" :key="sll.name">
+        <span class="sll">{{sll.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
+        <span v-if="(sll.level=='Connaissances') || (sll.level=='Basics') || (sll.level=='Confirmed') || (sll.level=='Confirme') || (sll.level=='Expert')" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
 
+        <span v-if="sll.level=='Confirme' || (sll.level=='Confirmed') || sll.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
 
+        <span v-if="sll.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+        </span>
+      </div>
+    </div>
 
+    <div class="slls">
+      <div class="sll-block" v-for="sll in person.slls" v-if="(sll.level=='Confirmed')||(sll.level=='Confirme')" :key="sll.name">
+        <span class="sll">{{sll.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
+        <span v-if="(sll.level=='Connaissances') || (sll.level=='Basics') || (sll.level=='Confirmed') || (sll.level=='Confirme') || (sll.level=='Expert')" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sll.level=='Confirme' || (sll.level=='Confirmed') || sll.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sll.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="slls">
+      <div class="sll-block" v-for="sll in person.slls" v-if="(sll.level=='Basics')||(sll.level=='Connaissances')" :key="sll.name">
+        <span class="sll">{{sll.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
+        <span v-if="(sll.level=='Connaissances') || (sll.level=='Basics') || (sll.level=='Confirmed') || (sll.level=='Confirme') || (sll.level=='Expert')" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sll.level=='Confirme' || (sll.level=='Confirmed') || sll.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sll.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+        </span>
+      </div>
+    </div>
+<!--
+    <div class="slls">
+      <div class="sll-block" v-for="sll in person.slls" v-if="(sll.level=='Selectionner')||(sll.level=='Select')" :key="sll.name">
+        <span class="sll">{{sll.name}}</span><span>&nbsp;&nbsp;&nbsp;</span><span>
+        <span v-if="(sll.level=='Connaissances') || (sll.level=='Basics') || (sll.level=='Confirmed') || (sll.level=='Confirme') || (sll.level=='Expert')" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sll.level=='Confirme' || (sll.level=='Confirmed') || sll.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+
+        <span v-if="sll.level=='Expert'" class="material-icons small-icon">star</span>
+        <span v-else class="material-icons small-icon">star_border</span>
+        </span>
+      </div>
+    </div>
+-->
 
 
 
@@ -137,8 +199,8 @@
           <span class="section-headline">{{ lang.experience }}</span>
         </div>
 
-      <div class="section-content">
-          <div v-for="(experience, index) in person.experience" :key="index"
+      <div class="section-content" v-if="person.experience !== null">
+          <div  v-for="(experience, index) in person.experience" :key="index"
             class="section-content__item"
             >
           <span v-if="(experience.company !=='None')" class="section-content__subheader"> {{ experience.company }} ({{ experience.timeperiod.split(".", 1)[0] }})</span>
@@ -148,7 +210,7 @@
       </div>
 
 
-     <div v-if="(person.skills)&&(person.experience.length<5)"
+     <div v-if="(person.skills)&&(LinaExperience.an.length<5)"
         class="skills-section section">
         <hr class="separation">
         <div class="icon">
@@ -194,7 +256,7 @@
 </div>
 
 
-<div v-if="(person.skills)&&(person.experience.length>=5)"
+<div v-if="(person.skills)&&(LinaExperience.an.length>=5)"
         class="section-content">
         <span class="section-headline"> {{ lang.skills }}</span>
            <hr class="separation">
@@ -240,8 +302,8 @@
           <div v-for="(contrib, index) in person.listcontribs" :key="index"
             class="section-content__text"  v-if="contrib.community != 'None'">
             <span class="contributions section-content__subheader" v-if="contrib.community != 'None'" v-html="'Communauté : '+contrib.community"></span>
-            <span class="contributions" v-if="contrib.subject != 'None'" v-html="'Sujet de la contribution : '+contrib.subject" ></span><br>
-            <span v-if="contrib.description != 'None'" v-html="'Description : '+contrib.description"></span>
+            <span class="contributions" v-if="contrib.subject != 'None'" v-html="'Sujet(s) de contribution(s) : '+contrib.subject" ></span><br>
+            <span v-if="contrib.description != 'None'" v-html="''+contrib.description"></span>
             <br>&nbsp;
           </div>
           <div class="section-content__text"  v-if="(person.contributions!='None')&&(person.contrib_ct == '0')" v-html="person.contributions"></div>
@@ -271,7 +333,7 @@
 
           <div v-for="(publication, index) in person.listpubs" :key="index"
             class="section-content__text" v-if="publication.pub != 'None'">
-            <span class="contributions section-content__subheader" v-if="publication.pub != 'None'" v-html="'Publication / Date : '+publication.pub"></span>
+            <span class="contributions section-content__subheader" v-if="publication.pub != 'None'" v-html="'Publication : '+publication.pub"></span>
             <span class="contributions" v-if="publication.type != 'None'" v-html="'Type de Publication : '+publication.type"></span><br>
             <span v-if="publication.description != 'None'" v-html="'Description complémentaire : '+publication.description"></span>
             <br>&nbsp;
@@ -299,10 +361,10 @@
             <span class="section-content__text" v-if="project.function !== 'None'" v-html="project.function.replace('', '<br />')"></span>
             <br>
             <span class="section-content__subheader" v-if="project.missions !== '|None'">{{ lang.missions }}</span>
-            <span class="section-content__text"  v-html="project.missions.replace('', '<br />')"   v-if="project.missions !== '|None'"></span>
+            <span class="section-content__text"  v-html="project.missions.replace('', '<br />')"   v-if="project.missions !== '|None' && project.missions !== null"></span>
             <br>
-            <span class="section-content__subheader" v-if="project.technos !== '|None'">{{ lang.technos }}</span>
-             <span class="section-content__text"  v-html="project.technos"    v-if="project.technos !== '|None'"></span>
+            <span class="section-content__subheader" v-if="(project.technos !== '|None')&&(project.technos !== 'None')">{{ lang.technos }}</span>
+             <span class="section-content__text"  v-html="project.technos"    v-if="(project.technos !== '|None')&&(project.technos !== 'None')"></span>
            <hr>
           </div>
           </div>
@@ -317,13 +379,21 @@
         <div class="section-content">
 
 
+ <div class="contrib-section section page" >
+  <!--
+  <div class="section-content">
+        <span class="section-headline"> {{ lang.other }} </span>
+           <hr class="separation">
+  -->
            <div class="icon">
           <i class="material-icons small-icon">face</i>
           <span class="section-headline">{{ lang.other }}</span>
         </div>
-                <div class="section-content__text">  <div>
+
+               <div class="section-content__text"><br />  <div> 
 
           <span class="section-content__header" v-if="person.conferences!=='None'"> {{ lang.conferences }}</span>
+            <hr class="separation">
             <span class="section-content__text" v-if="person.conferences!=='None'" v-html="person.conferences"></span>
             <br>
 
@@ -335,7 +405,6 @@
             <br>
             <span class="section-content__header" v-if="person.loisirs!=='None'"> {{ lang.loisirs }}</span>
             <span class="section-content__text" v-if="person.loisirs!=='None'" v-html="person.loisirs"> person.loisirs }} </span>
-            <br>
 
 
             <br>
@@ -346,9 +415,10 @@
 
           </div>
           </div>
+    
         </div>
       </div>
-
+</div>
 
 
 
@@ -401,7 +471,7 @@ export default Vue.component(name, getVueOptions(name));
   width: 30%;
   height:264mm;
   padding: 30px;
-  padding-top: 45px;
+  padding-top: 25px;
   text-align: left;
 
   color: #999999;
@@ -722,7 +792,7 @@ a {
     margin-top:5px;
     margin-bottom:5px;
     .sll-block {
-      padding-bottom:10px;
+      padding-bottom:5px;
       display:inline-block;
       .sll {
         color:#999999;
