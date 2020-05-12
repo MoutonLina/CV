@@ -15,7 +15,11 @@
 node -v
 ```
 
-2. If you do not have installed Node.js in your machine then go to [this link](https://nodejs.org/en/download/) in order to install node.
+2. If you do not have installed Node.js in your machine then (ubuntu) :
+- curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+- sudo apt-get install -y nodejs
+
+
 
 3. It is required to have Python 2.7 or higher and :
 - sudo apt install python-pip
@@ -38,7 +42,13 @@ git clone https://github.com/MoutonLina/CV.git
 
 2. Go to the cloned directory.
 
-3. Run `npm install --no-optional`.
+3. Run `npm install`.
+
+(ubuntu) : complete the puppetteer installation :
+
+```
+sudo apt install -y gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+```
 
 4. Customize CV template in src/creativeLINA.vue.
 
