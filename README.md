@@ -16,18 +16,20 @@ node -v
 ```
 
 2. If you do not have installed Node.js in your machine then (ubuntu) :
+```
 - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 - sudo apt-get install -y nodejs
-
+```
 
 
 3. It is required to have Python 2.7 or higher and :
+```
 - sudo apt install python-pip
 - pip install ezodf
 - pip install lxml
 - pip install unidecode
 - sudo apt-get install python-yaml
-
+```
 
 
 
