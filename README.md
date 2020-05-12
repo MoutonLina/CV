@@ -1,19 +1,8 @@
 <h1 align="center">
   <br>
-  best-resume-ever - TEST JPM
+  information extraction and CV generation with best-resume-ever (https://github.com/salomonelli/best-resume-ever.git) 
   <br>
 </h1>
-  => test avec contenu => OK
-<br>
-  => modification d'un template  => OK
-<br>
-  => export en odt  => Pas de solution pour le moment
-<br>
-  => automatisation exports => mettre en place une variabilisation de data.yml et faire du traitement en boucle
-<br>
-  => génération des yml depuis les fichiers excel (formulaires) => à étudier / à faire..
-
-
 
 <br>
 <br>
@@ -28,30 +17,32 @@ node -v
 
 2. If you do not have installed Node.js in your machine then go to [this link](https://nodejs.org/en/download/) in order to install node.
 
+3. It is required to have Python 2.7 or higher
+
+
 ## How to use
 
 1. Clone this repository.
 
 ```
-git clone https://github.com/salomonelli/best-resume-ever.git
+git clone https://github.com/MoutonLina/CV.git
 ```
 
-2. Go to the cloned directory (e.g. `cd best-resume-ever`).
+2. Go to the cloned directory.
 
 3. Run `npm install`.
 
-4. Customize your resume in the `resume/` directory: edit your data `data.yml` and replace the default profile-picture `id.jpg` with your picture. Rename your picture as `id.jpg` and copy it in the `resume/` directory.
+4. Customize CV template in src/creativeLINA.vue.
 
-5. Preview resumes with `npm run dev`. The command will start a server instance and listen on port 8080.  Open (http://localhost:8080/home) in your browser. The page will show some resume previews. To see the preview of your resume, with your picture and data, click on one layout that you like and the resume will be opened in the same window.
+5. put the CV forms (.ods) in extract/Formulaires. name of a CV form has to be like "NAME_CV.ods"
 
-![Resume previews](/readme-images/resumePreviews.png)
+6. put the contributors forms (.ods) in extract/Fichescontrib. name of a contributor form has to be like "NAME_CONTRIBUTIONS.ods"
+
+7. go to extract/ en generate CV with 'python extractCsv2Yml2Pdf.py' and all Cvs ("NAME.pdf" or "Contrib_NAME.pdf")  will be generated in the /pdf folder
+
+8. to generate the skills matrix : open skillsmatrix.ods and click on the "récupérer les infos" button on the Matrice Tab. The list of the CV will be generated and the skill matrix will be available on the "Talbeaux" tab 
 
 
-6. Export your resume as pdf by running the command `npm run export`. In order to avoid errors due to the concurrency of two  `npm run` commands, stop the execution of the previus `npm run dev` and then type the export command.
-
-All resumes will be exported to the `pdf/` folder.
-
-<br>
 
 ## Creating and Updating Templates
 
@@ -59,11 +50,6 @@ Please read the <a href="DEVELOPER.md">developer docs</a> on how to create or up
 
 <br>
 
-## Contribute
-
-Feel free to add your own templates, language supports, fix bugs or improve the docs. Any kind of help is appreciated! If you make any kind of changes to an existing template, please commit them as new templates.
-
-<br>
 
 ## Credits
 
