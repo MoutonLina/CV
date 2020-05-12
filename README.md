@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  information extraction and CV generation with best-resume-ever (https://github.com/salomonelli/best-resume-ever.git) 
+  information extraction and CV generation with best-resume-ever 
   <br>
 </h1>
 
@@ -58,15 +58,8 @@ This project uses several open source packages:
 - <a href="https://github.com/vuejs/vue" target="_blank">Vue</a>
 - <a href="https://github.com/GoogleChrome/puppeteer" target="_blank">Puppeteer</a>
 - <a href="https://github.com/less/less.js" target="_blank">LESS</a>
+- <a href="https://github.com/salomonelli/best-resume-ever.git">best resume ever</a>
 
 <br>
 
----
 
-> [sarasteiert.com](https://www.sarasteiert.com) &nbsp;&middot;&nbsp;
-> GitHub [@salomonelli](https://github.com/salomonelli) &nbsp;&middot;&nbsp;
-> Twitter [@salomonelli](https://twitter.com/salomonelli)
-
-## License
-
-[MIT](https://github.com/salomonelli/best-resume-ever/blob/master/LICENCE.md)
