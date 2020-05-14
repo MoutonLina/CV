@@ -1,0 +1,237 @@
+/* #*/ export const PERSON = ` 
+about: DCA a 18 ann\xE9es d\u2019expertise dans le domaine de la s\xE9curit\xE9 informatique&#46;\
+  \ Il est capable de couvrir toutes les \xE9tapes qui touchent \xE0 la mise en place\
+  \ d\u2019une PKI&#44; de l\u2019\xE9tude \xE0 la formation&#44; en passant par les\
+  \ travaux d\u2019int\xE9gration&#46; <br />Fort de son exp\xE9rience dans ce domaine&#44;\
+  \ il ma\xEEtrise parfaitement l\u2019aspect s\xE9curit\xE9 d\u2019un SI et conna\xEE\
+  t toutes les probl\xE9matiques auxquelles peut \xEAtre confront\xE9 une organisation&#44;\
+  \ pour y apporter des solutions \xE9prouv\xE9es et complexes&#46; DCA est par ailleurs\
+  \ extr\xEAmement soucieux de produire une documentation d\u2019excellente facture\
+  \ pour faciliter le maintien des solutions mises en \u0153uvre&#46; Il ma\xEEtrise\
+  \ parfaitement les outils bureautiques et produit des documents tr\xE8s lisibles\
+  \ et aboutis&#46;
+anexp: '12'
+caracteristics:
+- {level: Oui, name: Architecture}
+- {level: Oui, name: Developpement}
+- {level: Oui, name: DevOps}
+- {level: Oui, name: Expertise}
+- {level: Oui, name: Pilotage}
+- {level: Non, name: UX / UI}
+- {level: Selectionner, name: Consulting}
+- {level: Selectionner, name: Innovation}
+conferences: None
+contrib_ct: 1
+contributions: None
+education:
+- {contenu: 'Methodique, Implique, Minutieux'}
+- {contenu: Ingenieur ENSEA}
+- {contenu: None}
+event_ct: 0
+exellence:
+- {content: Definition et mise en place d'une PKI}
+- {content: Participer a la redaction de la reponse a l'appel d'offres.}
+- {content: Apporter au client une expertise technique pointue.}
+- {content: Animer des presentations et des conferences thematiques.}
+- {content: Assurer la veille technologique.}
+experience:
+
+
+
+
+
+
+
+fierte: None
+lang: fr
+languages:
+- {level: Selectionner, name: Allemand}
+- {level: Courant, name: Anglais}
+- {level: Selectionner, name: Arabe}
+- {level: Selectionner, name: Chinois}
+- {level: Selectionner, name: Espagnol}
+- {level: Courant, name: Francais}
+- {level: Selectionner, name: Hindi}
+- {level: Selectionner, name: Italien}
+- {level: Selectionner, name: Japonais}
+- {level: Selectionner, name: Portugais}
+- {level: Selectionner, name: Russe}
+- {level: Selectionner, name: Vietnamien}
+listcontribs: [{community: OW2 Sirocco , subject: Plugin OpenStack , description:
+    Creation du connecteur OpenStack pour Sirocco&#46;https&#58;//github&#46;com/ow2&#45;sirocco/sirocco},{community:
+    Nodejs , subject: Librairies / modules , description: Developpement de plusieurs
+    modules node&#46;js &#58; Internet Of Things&#44; connecteur pour la plateforme
+    slack&#46;com&#44; framework de bots&#46; Node&#46;js Librairies / moduleshttps&#58;//www&#46;npmjs&#46;com/package/dockerhub2slackhttps&#58;//www&#46;npmjs&#46;com/package/sd&#45;socketio&#45;plugi},{community:
+    None , subject: None , description: None},{community: None , subject: None , description:
+    None},{community: None , subject: None , description: None},{community: None ,
+    subject: None , description: None},{community: None , subject: None , description:
+    None},{community: None , subject: None , description: None},{community: None ,
+    subject: None , description: None},{community: None , subject: None , description:
+    None},{community: None , subject: None , description: None},{community: None ,
+    subject: None , description: None},{community: None , subject: None , description:
+    None},{community: None , subject: None , description: None},{community: None ,
+    subject: None , description: None},{community: None , subject: None , description:
+    None},{community: None , subject: None , description: None},{community: None ,
+    subject: None , description: None},{community: None , subject: None , description:
+    None},{community: None , subject: None , description: None},{community: None ,
+    subject: None , description: None},]
+listevents: [{event: None , description: None , type: None},{event: None , description:
+    None , type: None},{event: None , description: None , type: None},{event: None
+    , description: None , type: None},{event: None , description: None , type: None},{event:
+    None , description: None , type: None},{event: None , description: None , type:
+    None},{event: None , description: None , type: None},{event: None , description:
+    None , type: None},{event: None , description: None , type: None},{event: None
+    , description: None , type: None},{event: None , description: None , type: None},{event:
+    None , description: None , type: None},{event: None , description: None , type:
+    None},{event: None , description: None , type: None},{event: None , description:
+    None , type: None},{event: None , description: None , type: None},{event: None
+    , description: None , type: None},{event: None , description: None , type: None},{event:
+    None , description: None , type: None},{event: None , description: None , type:
+    None},]
+listpubs: [{pub: None , type: None , description: None},{pub: None , type: None ,
+    description: None},{pub: None , type: None , description: None},{pub: None , type:
+    None , description: None},{pub: None , type: None , description: None},{pub: None
+    , type: None , description: None},{pub: None , type: None , description: None},{pub:
+    None , type: None , description: None},{pub: None , type: None , description:
+    None},{pub: None , type: None , description: None},{pub: None , type: None , description:
+    None},{pub: None , type: None , description: None},{pub: None , type: None , description:
+    None},{pub: None , type: None , description: None},{pub: None , type: None , description:
+    None},{pub: None , type: None , description: None},{pub: None , type: None , description:
+    None},{pub: None , type: None , description: None},{pub: None , type: None , description:
+    None},{pub: None , type: None , description: None},{pub: None , type: None , description:
+    None},]
+loisirs: None
+name: {first: Tri nom, last: Tri pre, trigramme: TRI}
+partner: Oui
+position: developpeur
+projects: [{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},{enterprise: None,period: None,project: None,function: None,missions:
+    None,technos: None},]
+pub_ct: 0
+skills: [{name: EJBCA (PKI), OpenSSL, PKIX, SSL/TLS , level: Expert},{name: certificats
+    numeriques , level: Expert},{name: OpenPGP, PGP, GnuPG , level: Expert},{name:
+    LaTeX, Inkscape, GanttProject , level: Expert},{name: LinShare, OBM , level: Expert},{name:
+    HTML, CSS , level: Confirme},{name: Debian, Ubuntu, RedHat, CentOS , level: Confirme},{name:
+    Chrome, Firefox, Thunderbird , level: Confirme},{name: JBoss, WildFly, Apache
+    , level: Connaissances},]
+slls: [{name:  syst\xE8mes d\u2019exploitation (noyaux et leurs modules) , level:\
+    \ Connaissances},{name:  infrastructure , level: Confirme},{name:  messagerie\
+    \ , level: Connaissances},{name:  serveurs de fichiers , level: Connaissances},{name:\
+    \  serveurs d\u2019applications , level: Confirme},{name:  syst\xE8mes de gestion\
+    \ de bases de donn\xE9es , level: Connaissances},{name:  serveurs Web , level:\
+    \ Connaissances},{name:  outils de s\xE9curit\xE9 , level: Expert},{name:  outils\
+    \ r\xE9seaux , level: Connaissances},{name:  outils de supervision , level: Connaissances},{name:\
+    \  outils d\u2019administration , level: Connaissances},{name:  bureautique ,\
+    \ level: Connaissances},{name:  outils d\u2019exploitation , level: Connaissances},{name:\
+    \  outils et langages de d\xE9veloppement , level: Connaissances},{name:  \xAB\
+    \ frameworks \xBB de d\xE9veloppement , level: Connaissances},{name:  outils de\
+    \ tests , level: Connaissances},{name:  syst\xE8mes d'information g\xE9ographique\
+    \ , level: Selectionner},{name:  outils de travail collaboratif , level: Connaissances},{name:\
+    \  outils de gestion de publication , level: Connaissances},{name:  outils de\
+    \ gestion de portails , level: Connaissances},{name:  d\xE9cisionnel , level:\
+    \ Connaissances},{name:  progiciels m\xE9tier , level: Confirme},]
+sllsbis: [{name: OS / Virtualisation ,level: Confirme},{name: Reseaux et outillage
+    associe ,level: Confirme},{name: Securite / PKI / Crypto ,level: Expert},{name:
+    Infrastructure / Cloud / IaaS ,level: Confirme},{name: Exploitation / Supervision
+    / DevOps ,level: Confirme},{name: IAM / Federation d''identites ,level: Expert},{name:
+    Serveurs d''app. / Middleware ,level: Confirme},{name: SGBD / NoSQL ,level: Connaissances},{name:
+    ESB / SOA / WOA / MOM ,level: Confirme},{name: Outils de modelisation ,level:
+    Confirme},{name: Frameworks de developpement ,level: Connaissances},{name: Ingenierie
+    de dev / Forge / PIC ,level: Expert},{name: Outillage de tests / Qualite de code
+    ,level: Confirme},{name: CMS / Portail d''entreprise / Search ,level: Confirme},{name:
+    Gestion documentaire / Workflow ,level: Expert},{name: Messagerie / RSE / Collaboratif
+    ,level: Confirme},]
+
+`
