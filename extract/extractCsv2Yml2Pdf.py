@@ -85,6 +85,8 @@ for j in range(0, int(nbetab)):
         pub_ct=0
         import yaml
 
+        #note : les islls correspondent aux cellules qui contiennent les informations recupérées dans le calc pour generer le yml
+        #ne pas modifier leurs valeurs sans modifier le calc correspondant
         islls=23
         sllschain=''
         while islls < 45 : 
@@ -103,6 +105,8 @@ for j in range(0, int(nbetab)):
             sheet['E734']
         except:
             iproject=286    
+        #note : les iproject correspondent aux cellules qui contiennent les informations recupérées dans le calc pour generer le yml
+        #ne pas modifier leurs valeurs sans modifier le calc correspondant
         #iproject=734
         #iproject=286
         projectchain=''
@@ -393,5 +397,7 @@ for c in tri_contributeurs:
     if c not in contrib_presents:
         contrib_absents_finaux.append(c)
 print contrib_absents_finaux
+
+# le run export genere les PDF / le run dev permet de generer les yml et de les consulter en localhost
 os.system("npm run export")
 #os.system("npm run dev")
